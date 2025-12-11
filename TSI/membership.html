@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/remixicon.css">
+  <script src="js/tw.js"></script>
+  <title>TSI</title>
+  <style>
+    .wws:hover img{
+      scale:1.1;
+      transition:  all .35s linear;
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-white">
+  <div class="mx-auto bg-white relative max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 md:w-full md:justify-center items-center justify-between">
+      <div class="flex-1 md:flex md:items-center md:justify-center">
+        <a class="block flex items-center gap-2 text-blue-600" href="#">
+          <span class="sr-only">Home</span>
+          <img src="logo.png" class="w-11">
+          <span class="font-extrabold md:hidden text-3xl">TSI</span>
+          <span class="font-extrabold hidden md:inline text-xl">Talent Search Initiative</span>
+        </a>
+      </div>
+
+      <div class="md:flex md:items-center md:gap-12">
+
+        <div class="flex items-center gap-4">
+          <div class="block md:hidden">
+            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+          <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5  text-2xl font-light fixed  inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-base md:items-center md:flex md:justify-between">
+            <li>
+              <a class="text-white hover:underline" href="index.html">Home </a>
+            </li>
+            <li  onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 "></li>
+
+            <li>
+              <a class="text-white hover:underline" href="about.html"> About </a>
+            </li>
+
+            <li>
+              <a class="text-white hover:underline" href="founder.html"> Founder </a>
+            </li>
+
+            <li>
+              <a class="text-white hover:underline" href="directors.html"> Directors </a>
+            </li>
+
+            <li>
+              <a class="text-white hover:underline" href="ambassadors.html"> Ambassadors </a>
+            </li>
+            <li>
+              <a class="text-white hover:underline" href="programs.html">Programs </a>
+            </li>
+            <li>
+              <a class="text-white hover:underline" href="membership.html"> Membership </a>
+            </li>
+            <li>
+              <a class="text-white hover:underline" href="gallery.html"> Gallery </a>
+            </li>
+            <li>
+              <a class="text-white hover:underline" href="events.html"> Events </a>
+            </li>
+            <li>
+              <a class="text-white hover:underline" href="contact.html"> Contact </a>
+            </li>
+          </ul>
+</header>
+  <header class="h-44 flex justify-center items-center items-center flex-col relative w-full">
+    <img class="brightness-50 w-full h-full absolute inset-0 -z-10 object-center" src="S.jpg">
+    <h1 class="text-cyan-400 font-bold text-3xl">Become a member</h1>
+    <p class="text-white text-sm text-center mx-5">Join a community dedicated to excellence and growth.</p>
+  </header>
+
+  <form action="#" class="hidden gap-7 flex-col max-w-lg grid-cols-1 fixed z-50 w-screen h-screen inset-0  rounded-lg border border-gray-300 bg-gray-100 px-6 py-2 sm:grid-cols-2" id="form">
+  <div>
+  <h2 class="mt-4 font-semibold text-2xl">Membership Application</h2>
+  <p class="text-blue-500 font-bold m">Deluxe 500,0000</p>
+  </div>
+  <div class="md:col-span-2">
+    <label class="block text-sm font-medium text-gray-900" for="name">Full Name</label>
+
+    <input class="mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 p-1.5 focus:outline-none" id="name" type="text" placeholder="Your name">
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-gray-900" for="email">Email</label>
+
+    <input class="mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 p-1.5 focus:outline-none" id="email" type="email" placeholder="Your email">
+  </div>
+
+  <div>
+    <label class="block text-sm font-medium text-gray-900" for="phone">Phone</label>
+
+    <input class="mt-1 w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:outline-none p-1.5" id="phone" type="tel" placeholder="Your phone">
+  </div>
+
+  <div class="md:col-span-2">
+    <label class="block text-sm font-medium text-gray-900" for="message">Address</label>
+
+    <textarea class="mt-1 w-full resize-none rounded-lg border-gray-300 p-1.5 focus:border-indigo-500 focus:outline-none" id="message" rows="1" placeholder="Address"></textarea>
+  </div>
+
+  <div class="md:col-span-2 flex gap-1">
+    <button class="block w-full rounded-lg border border-red-200 bg-red-200 px-12 py-3 text-sm font-medium text-red-600 transition-colors hover:bg-red-600 w-1/3 hover:text-white" type="button" onclick="this.parentElement.parentElement.style.display = 'none'">
+      Cancel
+    </button>
+    <button class="block w-full rounded-lg border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition-colors hover:bg-transparent hover:text-indigo-600" type="submit">
+      Submit
+    </button>
+  </div>
+</form>
+
+
+<div class="flex flex-wrap items-center justify-center mt-4 gap-6">
+    <div class="w-72 bg-blue-500 relative text-center text-white border border-gray-500/30 p-6 rounded-lg">
+        <p class="absolute px-3 text-sm -top-3.5 left-3.5 py-1 bg-blue-700 rounded-full">Most Popular</p>
+        <p class="font-semibold pt-2">Ordinary</p>
+        <h1 class="text-3xl font-semibold">Ugx.50,000<span class="text-sm font-normal">/year</span></h1>
+        <ul class="list-none text-white text-sm mt-6 space-y-1">
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="currentColor"/>
+                </svg>
+                <p>Access to training programs</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="currentColor"/>
+                </svg>
+                <p>Event Participation</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="currentColor"/>
+                </svg>
+                <p>Networking opportunities</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="currentColor"/>
+                </svg>
+                <p>Membership Card</p>
+            </li>
+           
+        </ul>
+        <button type="button" class="bg-white text-sm w-full py-2 rounded text-blue-500 font-medium mt-7 hover:bg-gray-200 transition-all" onclick="bu('Ordinary - UGX.50,000')">
+            Get Started
+        </button>
+    </div>
+    <div class="w-72 bg-white text-center text-gray-800/80 border border-gray-200 p-6 rounded-lg">
+        <p class="font-semibold">Associate</p>
+        <h1 class="text-3xl font-semibold">Ugx.100,000<span class="text-gray-500 text-sm font-normal">/year</span></h1>
+        <ul class="list-none text-gray-500 text-sm mt-6 space-y-1">
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>All Ordinary Benefits</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Priority Event Sesting</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Membership access</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Vote in General Assembly</p>
+            </li>
+            
+        </ul>
+        <button type="button" class="bg-blue-500 text-sm w-full py-2 rounded text-white font-medium mt-7 hover:bg-blue-600 transition-all" onclick="bu('Associate - UGX.100,000')">
+            Get Started
+        </button>
+    </div>
+
+
+    <div class="w-72 bg-white text-center text-gray-800/80 border border-gray-200 p-6 rounded-lg">
+        <p class="font-semibold">Institutional</p>
+        <h1 class="text-3xl font-semibold">Ugx.500,000<span class="text-gray-500 text-sm font-normal">/year</span></h1>
+        <ul class="list-none text-gray-500 text-sm mt-6 space-y-1">
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Organizational partnership</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Logo on website</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Talent scouting priority</p>
+            </li>
+            <li class="flex items-center gap-2">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.162 13.5 2.887 9.225l1.07-1.069 3.205 3.207 6.882-6.882 1.069 1.07z" fill="#2162f6"/>
+                </svg>
+                <p>Collaborative events</p>
+            </li>
+           
+        </ul>
+        <button type="button" class="bg-blue-500 text-sm w-full py-2 rounded text-white font-medium mt-7 hover:bg-blue-600 transition-all" onclick="bu('Institutional - UGX.500,000')">
+            Get Started
+        </button>
+    </div>
+</div>
+  <div class="">
+  <h2 class="mx-4 mt-4 font-semibold text-3xl text-center">How to join?</h2>
+    <ol class="px-5">
+  <style>
+  
+    ol li:before{
+      background: blue;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      color: white;
+      padding-inline: 5px;
+    }
+  </style>
+  <li class="flex my-1 bg-gray-100 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">1</b><p class="font-bold">Fill the Application Form<span class="block font-normal text-gray-700 ">Complete the online registration form with your details.</span></p></li>
+  <li class="flex my-1 bg-gray-100 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">2</b><p class="font-bold">Pay Subscription Fee<span class="block font-normal text-gray-700 ">Pay the annual fee corresponding to your membership category.</span></p></li>
+  <li class="flex my-1 bg-gray-100 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">3</b><p class="font-bold">Get verified<span class="block font-normal text-gray-700 ">Our team will review and approve your membership.</span></p></li>
+ </ol>
+
+  </div>
+  
+  
+  <footer class="bg-gray-900">
+  <div class="mx-auto max-w-7xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div>
+        <div class="text-blue-400 items-center flex gap-2 dark:text-blue-300">
+          <img src="logo.png" class="w-16">
+          <b class="text-xl">Talent Search Initiative</b>
+        </div>
+
+        <p class="mt-4 max-w-xs text-gray-300">
+          Discovering, nurturing, and showcasing exceptional talents across various sectors for personal and national development.
+        </p>
+
+        <ul class="mt-8 flex text-2xl gap-6">
+          <li>
+            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+              <span class="ri-instagram-fill"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+              <span class="ri-youtube-fill"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+              <span class="ri-tiktok-fill"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+              <span class="ri-twitter-x-fill"></span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+        <div>
+          <p class="font-medium text-white">Quick Links</p>
+
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <a href="about.html" class=" transition hover:opacity-75 text-gray-200">
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="programs.html" class=" transition hover:opacity-75 text-gray-200">
+                Our Programs
+              </a>
+            </li>
+            <li>
+              <a href="events.html" class=" transition hover:opacity-75 text-gray-200">
+                Events
+              </a>
+            </li>
+            <li>
+              <a href="membership.html" class=" transition hover:opacity-75 text-gray-200">
+                Membership
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class=" transition hover:opacity-75 text-gray-200">
+                Contact Us
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+
+
+      </div>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+        <div>
+          <p class="font-medium text-white">Contact Us</p>
+
+          <ul class="mt-6 *:flex *:items-center *:gap-1 *:my-2 text-sm">
+            <li class="space-x-2 text-gray-200">
+              <span class="text-xl ri-map-pin-line"></span>
+              Kampala, Uganda
+            </li>
+            <li class="space-x-2 text-gray-200">
+              <span class="text-xl ri-phone-line"></span>
+              0786106501 / 0755388929
+            </li>
+            <li class="space-x-2 text-gray-200">
+              <span class="text-xl ri-mail-line"></span>
+              info@talentsearchinitiative.com
+            </li>
+            
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+
+    <p class="text-xs text-gray-400">
+      © 2025. Talent Search Initiative. All rights reserved.
+    </p>
+  </div>
+</footer>
+<script>
+  function bu(t){
+    document.getElementById("form").style.display = "flex";
+    document.querySelector("#form .m").innerHTML = t
+  }
+</script>
+</body>
+</html>

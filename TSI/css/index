@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="InoviStore - Create your online store in minutes. Start selling online with our easy-to-use platform.">
+  <meta name="keywords" content="online store, e-commerce, sell online, create store, Uganda">
+  <link rel="stylesheet" href="css/remixicon.css">
+  <script src="js/tw.js"></script>
+  <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+ 
+  <style>
+  @keyframes yall{
+    from{
+      left: 0;
+    }to{
+      left: 90%;
+    }
+  }
+    /* Hero background with 3D elements */
+    .hero-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      background: linear-gradient(to bottom, #e2e8f0 0%, #cbd5e1 100%);
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    /* 3D Store illustration */
+    .store-3d {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 600px;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(-50%) translateZ(0); }
+      50% { transform: translateY(-52%) translateZ(20px); }
+    }
+    
+    /* Box animations */
+    .box-float {
+      animation: boxFloat 4s ease-in-out infinite;
+    }
+    
+    @keyframes boxFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    
+    /* Store input styling */
+    .store-input-wrapper {
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      padding: 6px 6px 6px 16px;
+      max-width: 500px;
+      transition: all 0.3s ease;
+    }
+    
+    .store-input-wrapper:hover {
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+    }
+    
+    .store-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 6px 1px;
+      font-size: 14px;
+    }
+    
+    .store-submit-btn {
+      background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+      border: none;
+      aspect-ratio: 1/1;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+    }
+    
+    .store-submit-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Feature cards */
+    .feature-card {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border-color: #0ea5e9;
+    }
+    
+    /* Pricing cards */
+    .pricing-card {
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Stats animation */
+    .stat-number.rating:after{
+      content: "/100";
+      background-color: #aaa;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.4rem;
+    }
+    .stat-number:after{
+      content: "+";
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+  <title>InoviStore - Create Your Online Store in Minutes</title>
+</head>
+<body class="bg-white">
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-12">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <img src="logo.svg" class="w-9 h-9" alt="InoviStore">
+          <span class="text-xl font-bold bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
+            InoviStore
+          </span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-gray-700 hover:text-sky-600 font-medium transition">About</a>
+          <a href="#features" class="text-gray-700 hover:text-sky-600 font-medium transition">Features</a>
+          <a href="#pricing" class="text-gray-700 hover:text-sky-600 font-medium transition">Pricing</a>
+          <a href="#home" class="text-gray-700 hover:text-sky-600 font-medium transition">Login</a>
+          <a href="#home" class="bg-gradient-to-r from-sky-500 to-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
+            Start Selling
+          </a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700">
+          <i id="ri-menu-line" class="ri-menu-line text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t h-screen pb-12 relative border-gray-200">
+      <div class="px-4 py-4 text-2xl space-y-3">
+        <a href="#about" class="block text-gray-700 hover:text-sky-600 border-b border-gray-200 pb-3 font-medium">About</a>
+        <a href="#features" class="block text-gray-700 hover:text-sky-600 border-b border-gray-200 pb-3 font-medium">Features</a>
+        <a href="#pricing" class="block text-gray-700 hover:text-sky-600 border-b border-gray-200 pb-3 font-medium">Pricing</a>
+        <a href="#home" class="block text-gray-700 hover:text-sky-600 font-medium">Login</a>
+        <a href="#home" class="block text-center bg-sky-500 text-white px-6 py-3 rounded-full absolute w-5/6 left-1/2 -translate-x-1/2 bottom-36 font-semibold">
+          Start Selling
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section relative pt-9 mt-3 pb-20 px-4">
+    <div class="hero-bg"></div>
+    <img src="3d.png" class="absolute w-full h-full inset-0 object-cover object-right scale-105 hidden md:inline -right-20">
+    <img src="m.3d.png" class="absolute w-full h-full inset-0 object-cover md:hidden -right-20">
+    <div class="max-w-7xl m-auto top-1/2 relative z-10">
+      <div class="lg:w-1/2 relative md:top-1/2 transform md:translate-y-1/2">
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-2 leading-tight">Start Selling Online For <i class=" bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text  text-transparent">Free</i>
+        </h1>
+        
+        <!-- Subheading -->
+        <p class="text-gray-700 md:text-lg mb-1 max-w-lg">
+          With <span class="font-bold text-sky-500">InoviStore</span>, anyone can earn their 
+          first dollar online. Just start with what you know. It's that easy.
+        </p>
+        <p class="mb-2 text-center">Launching in <span id="countdown"></span></p>
+        <!-- Store Name Input -->
+        <form id="form" class="mb-4 w-full justify-center rounded-full relative bg-white">
+          <div class="store-input-wrapper">
+            <div class="flex items-center gap-3 flex-1">
+              <i class="ri-alarm-line text-2xl text-sky-500"></i>
+              <div class="flex-1">
+                <p class="text-sm text-gray-500">We will remind you when we launch</p>
+                <input 
+                  type="email" 
+                  class="store-input" 
+                  placeholder="Enter your email"
+                  required
+                >
+              </div>
+            </div>
+            <button type="submit" class="store-submit-btn  bg-gradient-to-r from-sky-500 to-blue-600 ">
+              <i class="ri-arrow-right-line text-2xl text-white"></i>
+            </button>
+          </div>
+        </form>
+        <div class="md:flex items-center justify-evenly flex-wrap absolute w-6/12 hidden pt-7 left-0">
+          <div class="flex items-center gap-2">
+            <i class="ri-shield-check-line text-green-600 text-2xl"></i>
+            <span class="text-sm text-gray-600">Secure & Safe</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ri-flashlight-line text-yellow-600 text-2xl"></i>
+            <span class="text-sm text-gray-600">Quick Setup</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ri-customer-service-line text-blue-600 text-2xl"></i>
+            <span class="text-sm text-gray-600">24/7 Support</span>
+          </div>
+        </div>
+        
+        <!-- Trust badges -->
+      </div>
+    </div>
+        <div class="flex items-center justify-evenly flex-wrap absolute w-full md:hidden bottom-4 left-0">
+          <div class="flex items-center gap-2">
+            <i class="ri-shield-check-line text-green-600 text-2xl"></i>
+            <span class="text-sm text-gray-600">Secure & Safe</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ri-flashlight-line text-yellow-600 text-2xl"></i>
+            <span class="text-sm text-gray-600">Quick Setup</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="ri-customer-service-line text-blue-600 text-2xl"></i>
+            <span class="text-sm text-gray-600">24/7 Support</span>
+          </div>
+        </div>
+    
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="stat-number">114</div>
+          <p class="text-gray-600 mt-2">Active Stores</p>
+        </div>
+        <div class="text-center">
+          <div class="stat-number">1954</div>
+          <p class="text-gray-600 mt-2">Products Listed</p>
+        </div>
+        <div class="text-center">
+          <div class="stat-number">2488</div>
+          <p class="text-gray-600 mt-2">Orders Completed</p>
+        </div>
+        <div class="text-center">
+          <div class="stat-number rating">87</div>
+          <p class="text-gray-600 mt-2">Average Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Why Choose InoviStore?
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We make it incredibly easy for anyone to start selling online. 
+          No technical skills required, no upfront costs, just your passion and products.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                <i class="ri-rocket-line text-sky-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Launch in Minutes</h3>
+                <p class="text-gray-600">Set up your complete online store in less than 5 minutes. No coding, no complexity.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="ri-money-dollar-circle-line text-green-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Start Free</h3>
+                <p class="text-gray-600">No credit card required. Start selling immediately and only pay when you make sales.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="ri-smartphone-line text-purple-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Mobile Optimized</h3>
+                <p class="text-gray-600">Your store looks perfect on any device. Manage everything from your phone.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                <i class="ri-line-chart-line text-orange-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Built-in Analytics</h3>
+                <p class="text-gray-600">Track your sales, customers, and performance with powerful analytics tools.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-sky-100 to-blue-100 rounded-2xl p-8 flex items-center justify-center">
+          <div class="text-center">
+            <i class="ri-store-3-line text-8xl text-sky-600 mb-4"></i>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Your Store, Your Way</h3>
+            <p class="text-gray-600">Customize everything to match your brand</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Everything You Need to Succeed
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Powerful features designed to help you sell more and grow faster
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="feature-card bg-white rounded-xl p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-sky-400 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+            <i class="ri-shopping-cart-line text-3xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Easy Product Management</h3>
+          <p class="text-gray-600">Add unlimited products with images, descriptions, and pricing. Organize with categories and tags.</p>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card bg-white rounded-xl p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl flex items-center justify-center mb-6">
+            <i class="ri-shield-check-line text-3xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Secure Payments</h3>
+          <p class="text-gray-600">Accept payments via mobile money, bank transfers, and cash on delivery. All transactions secured.</p>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="feature-card bg-white rounded-xl p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-600 rounded-xl flex items-center justify-center mb-6">
+            <i class="ri-truck-line text-3xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Order Management</h3>
+          <p class="text-gray-600">Track orders from placement to delivery. Automated notifications keep customers informed.</p>
+        </div>
+        
+        <!-- Feature 4 -->
+        <div class="feature-card bg-white rounded-xl p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-600 rounded-xl flex items-center justify-center mb-6">
+            <i class="ri-star-line text-3xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Customer Reviews</h3>
+          <p class="text-gray-600">Build trust with customer reviews and ratings. Respond to feedback and improve your service.</p>
+        </div>
+        
+        <!-- Feature 5 -->
+        <div class="feature-card bg-white rounded-xl p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-rose-600 rounded-xl flex items-center justify-center mb-6">
+            <i class="ri-palette-line text-3xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Custom Branding</h3>
+          <p class="text-gray-600">Add your logo, choose brand colors, and customize your store to match your identity.</p>
+        </div>
+        
+        <!-- Feature 6 -->
+        <div class="feature-card bg-white rounded-xl p-8">
+          <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+            <i class="ri-bar-chart-box-line text-3xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Analytics Dashboard</h3>
+          <p class="text-gray-600">Track sales, revenue, and customer behavior. Make data-driven decisions to grow your business.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 bg-gradient-to-br from-sky-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Get Started in 3 Simple Steps
+        </h2>
+        <p class="text-xl text-gray-600">
+          Launch your online store today
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center text-3xl font-bold text-white mx-auto mb-6">
+            1
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Sign Up</h3>
+          <p class="text-gray-600">Create your account in under 2 minutes. No credit card required.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center text-3xl font-bold text-white mx-auto mb-6">
+            2
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Add Products</h3>
+          <p class="text-gray-600">Upload your products with photos and descriptions. Customize your store.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full flex items-center justify-center text-3xl font-bold text-white mx-auto mb-6">
+            3
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Start Selling</h3>
+          <p class="text-gray-600">Share your store link and start receiving orders. It's that simple!</p>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#home" class="inline-block bg-gradient-to-r from-sky-500 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
+          Create Your Store Now <i class="ri-arrow-right-line ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Simple, Transparent Pricing
+        </h2>
+        <p class="text-xl text-gray-600">
+          Choose the plan that works for you
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Free Plan -->
+        <div class="pricing-card bg-white border-2 border-gray-200 hidden rounded-2xl p-8">
+          <h3 class="text-2xl font-bold mb-2">Starter</h3>
+          <div class="mb-6">
+            <span class="text-5xl font-bold">Free</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>U products</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>Basic analytics</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>Mobile optimized</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>Email support</span>
+            </li>
+          </ul>
+          <a href="#home" class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-900 py-3 rounded-full font-semibold transition">
+            Get Started
+          </a>
+        </div>
+        
+        <!-- Pro Plan -->
+        <div class="pricing-card bg-gradient-to-br from-sky-500 to-blue-600 border-2 border-sky-500 rounded-2xl p-8 text-white transform scale-105 shadow-2xl">
+          <div class="inline-block bg-white text-sky-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+            Most Popular
+          </div>
+          <h3 class="text-2xl font-bold mb-2">First Users</h3>
+          <div class="mb-6">
+            <span class="text-5xl font-bold">UGX 0</span>
+            <span class="text-lg opacity-90">/month</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-white text-xl"></i>
+              <span>Unlimited products</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-white text-xl"></i>
+              <span>Advanced analytics</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-close-line text-white text-xl"></i>
+              <span>Custom domain</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-white text-xl"></i>
+              <span>Priority support</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-close-line text-white text-xl"></i>
+              <span>Remove branding</span>
+            </li>
+          </ul>
+          <a href="#home" class="block text-center bg-white text-sky-600 py-3 rounded-full font-semibold hover:shadow-lg transition">
+            Start Now
+          </a>
+        </div>
+        
+        <!-- Enterprise Plan -->
+        <div class="pricing-card bg-white border-2 border-gray-200 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+          <div class="mb-6">
+            <span class="text-5xl font-bold">Custom</span>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>Everything in Pro</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>Dedicated account manager</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>Custom integrations</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="ri-check-line text-green-600 text-xl"></i>
+              <span>24/7 phone support</span>
+            </li>
+          </ul>
+          <a href="mailto:support@inovi.store" class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-900 py-3 rounded-full font-semibold transition">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-sky-500 to-blue-600">
+    <div class="max-w-4xl mx-auto px-4 text-center text-white">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">
+        Ready to Start Selling?
+      </h2>
+      <p class="text-xl mb-8 opacity-90">
+        Join entrepreneurs who are already growing their business with InoviStore
+      </p>
+      <a href="#home" class="inline-block bg-white text-sky-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition transform hover:scale-105">
+        Create Your Free Store <i class="ri-arrow-right-line ml-2"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="logo.svg" class="w-8 h-8" alt="InoviStore">
+            <span class="text-xl font-bold">InoviStore</span>
+          </div>
+          <p class="text-gray-400 text-sm">
+            Empowering entrepreneurs to build successful online businesses.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Product</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#features" class="hover:text-white transition">Features</a></li>
+            <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="#home" class="hover:text-white transition">Sign Up</a></li>
+            <li><a href="#home" class="hover:text-white transition">Login</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Company</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+            <li><a href="#home" class="hover:text-white transition">Blog</a></li>
+            <li><a href="#home" class="hover:text-white transition">Careers</a></li>
+            <li><a href="#home" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-bold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#home" class="hover:text-white transition">Help Center</a></li>
+            <li><a href="#home" class="hover:text-white transition">Terms of Service</a></li>
+            <li><a href="#home" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#home" class="hover:text-white transition">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-400 text-sm">
+          © 2025 InoviStore. All rights reserved.
+        </p>
+        <div class="flex gap-4">
+          <a href="#home" class="text-gray-400 hover:text-white transition">
+            <i class="ri-facebook-fill text-xl"></i>
+          </a>
+          <a href="#home" class="text-gray-400 hover:text-white transition">
+            <i class="ri-twitter-x-fill text-xl"></i>
+          </a>
+          <a href="#home" class="text-gray-400 hover:text-white transition">
+            <i class="ri-instagram-fill text-xl"></i>
+          </a>
+          <a href="#home" class="text-gray-400 hover:text-white transition">
+            <i class="ri-linkedin-fill text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+      const bars = document.getElementById('ri-menu-line');
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+      bars.classList.toggle('ri-menu-line');
+      bars.classList.toggle('ri-close-line');
+    }
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('hidden');
+        bars.classList.toggle('ri-menu-line');
+      bars.classList.toggle('ri-close-line');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#home"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('shadow-md');
+      } else {
+        nav.classList.remove('shadow-md');
+      }
+    });
+
+    // Animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe feature cards and other elements
+    document.querySelectorAll('.feature-card, .pricing-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'all 0.6s ease-out';
+      observer.observe(el);
+    });
+
+    // Counter animation for stats
+    const animateCounter = (element, target, duration = 2000) => {
+      let current = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('★') ? '★' : '');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('★') ? '★' : '');
+        }
+      }, 16);
+    };
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+          entry.target.classList.add('animated');
+          const numbers = entry.target.querySelectorAll('.stat-number');
+          numbers.forEach(num => {
+            const text = num.textContent;
+            const value = parseInt(text.replace(/[^0-9]/g, ''));
+            if (value) {
+              num.textContent = '0';
+              setTimeout(() => animateCounter(num, value), 200);
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stat-number')?.closest('section');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+    // Set the target date
+const targetDate = new Date('2025-12-09T12:00:00').getTime();
+
+// Update the countdown every second
+setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  document.getElementById('countdown').innerHTML = `
+    ${days}d ${hours}h ${minutes}m ${seconds}s
+  `;
+
+  // Handle countdown completion
+  if (distance < 0) {
+    document.getElementById('countdown').innerHTML = '!';
+  }
+}, 1000);
+    async function saveEmail(email) {
+        try {
+          const res = await axios({
+  method: "POST",
+  url: "https://api.baserow.io/api/database/rows/table/759873/?user_field_names=true",
+  headers: {
+    Authorization: "Token mdFKx9ZeO4aF1HnS5tiIxQOg8r70tH04",
+    "Content-Type": "application/json"
+  },
+  data: {
+    "Email": email
+  }
+})
+;
+          
+        } catch (err) {
+        //  alert(err);
+        }
+      }
+    document.getElementById("form").addEventListener("submit",function(e){
+      e.preventDefault();
+      saveEmail(e.target.querySelector("input").value);
+      e.target.classList.add("w-full")
+      e.target.innerHTML = `<b id="cx" class="text-center w-full top-1/2 font-light -translate-y-1/2 absolute">PROCESSING!</b> <button type="submit" class="store-submit-btn relative bg-gradient-to-r from-sky-500 to-blue-600 " style="left:90%; animation: yall 3s linear;">
+      
+              <i class="ri-indeterminate-circle-line text-2xl animate-spin text-white" ></i>
+            </button>`;
+            setTimeout(()=>{
+              document.querySelector(".store-submit-btn i").classList.remove("ri-indeterminate-circle-line")
+              document.querySelector(".store-submit-btn i").classList.remove("animate-spin")
+              document.querySelector(".store-submit-btn i").classList.add("ri-check-line")
+              document.getElementById("cx").innerHTML = "DONE!"
+              
+            },3000)
+    })
+  </script>
+
+</body>
+</html>
