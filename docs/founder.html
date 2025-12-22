@@ -5,32 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/remixicon.css">
   <script src="js/tw.js"></script>
-  <title>TSI</title>
+  <title>TSI - Founder</title>
   <style>
-    .wws:hover img{
-      scale:1.1;
-      transition:  all .35s linear;
+    /* Video background styles */
+    .video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    
+    /* Mobile menu improvements */
+    #nav {
+      transition: left 0.3s ease-in-out;
+    }
+    
+    /* Ensure content is above video */
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Page header with video background and blue-900 fallback */
+    .page-header {
+      background-color: #1e3a8a;
+      position: relative;
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
-  <header class="bg-white">
+<header class="bg-white sticky top-0 z-50 shadow-sm">
   <div class="mx-auto bg-white relative max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 md:w-full md:justify-center items-center justify-between">
-      <div class="flex-1 md:flex md:items-center md:justify-center">
-        <a class="block flex items-center gap-2 text-blue-600" href="#">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex-1 md:flex md:items-center md:justify-center lg:justify-start">
+        <a class="flex items-center gap-2 text-blue-600" href="index.html">
           <span class="sr-only">Home</span>
-          <img src="logo.png" class="w-11">
-          <span class="font-extrabold md:hidden text-3xl">TSI</span>
-          <span class="font-extrabold hidden md:inline text-xl">Talent Search Initiative</span>
+          <img src="logo.png" class="w-10 sm:w-11" alt="TSI Logo">
+          <span class="font-extrabold text-2xl sm:text-3xl md:hidden">TSI</span>
+          <span class="font-extrabold hidden md:inline text-lg lg:text-xl">Talent Search Initiative</span>
         </a>
       </div>
 
       <div class="md:flex md:items-center md:gap-12">
-
         <div class="flex items-center gap-4">
           <div class="block md:hidden">
-            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75" aria-label="Open menu">
               <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
@@ -40,196 +63,236 @@
       </div>
     </div>
   </div>
-          <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5  text-2xl font-light fixed  inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-base md:items-center md:flex md:justify-between">
-            <li>
-              <a class="text-white hover:underline" href="index.html">Home </a>
-            </li>
-            <li  onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 "></li>
-
-            <li>
-              <a class="text-white hover:underline" href="about.html"> About </a>
-            </li>
-
-            <li>
-              <a class="text-white hover:underline" href="founder.html"> Founder </a>
-            </li>
-
-            <li>
-              <a class="text-white hover:underline" href="directors.html"> Directors </a>
-            </li>
-
-            <li>
-              <a class="text-white hover:underline" href="ambassadors.html"> Ambassadors </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="programs.html">Programs </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="membership.html"> Membership </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="gallery.html"> Gallery </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="events.html"> Events </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="contact.html"> Contact </a>
-            </li>
-          </ul>
+  
+  <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5 text-xl sm:text-2xl font-light fixed inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-sm lg:text-base md:items-center md:flex md:justify-center md:gap-6 lg:gap-8 md:bg-white">
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="index.html">Home</a>
+    </li>
+    <li onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 cursor-pointer"></li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="about.html">About</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="founder.html">Founder</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="directors.html">Directors</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="ambassadors.html">Ambassadors</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="programs.html">Programs</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="membership.html">Membership</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="gallery.html">Gallery</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="events.html">Events</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="contact.html">Contact</a>
+    </li>
+  </ul>
 </header>
 
-  <main>
-    <img class="w-3/5 aspect-square mx-auto rounded-lg" src="gallery/imran.jpg">
-     <h3 class="text-blue-500 font-bold text-sm text-center">MEET THE VISIONARY</h3>
-  <h2 class="mx-4 font-semibold text-3xl text-center">Ssebayiga Imran</h2>
-  <h2 class="mx-4 text-red-600  font-light  text-xl text-center">Chief Executive Officer</h2>
-<p class="text-center mx-6 italic text-sm">"Leadership is not about position, but about impact and service."</p>
-
-  <h2 class="mx-4 mt-4 font-semibold text-3xl text-center">Biography</h2>
-  <p class="text-gray-700 my-3 mx-3 text-sm">From humble beginnings to becoming a guiding voice for young people, Ssebayiga Imran has built a remarkable journey rooted in vision, resilience, and purpose. As a passionate youth advocate and advisor, he dedicates his life to empowering the next generation—helping them discover their potential, find their voices, and become agents of positive change.</p>
-  <p class="text-gray-700 mx-3 text-sm">Imran is the author of Mastering the Arts of Public Speech and Wisdom Echoes: A Treasury of Powerful Quotes, works that combine practical guidance with profound insights. Through these books, he equips young people and readers of all ages with the tools to communicate effectively, think critically, and lead with integrity. His writings inspire courage, encourage reflection, and remind readers that wisdom and action together can transform lives.</p>
-  <p class="text-gray-700 mx-3 text-sm">Beyond the page, Imran’s influence resonates through his advocacy, mentorship programs, and community initiatives. He creates platforms where young leaders can thrive, express their ideas, and develop the confidence to shape their futures. Guided by values of integrity, empathy, and vision, he demonstrates that leadership is not about position, but about impact and service.
-<br>
-<br>
-Imran’s journey is a testament to the power of perseverance and the belief that every young person carries the potential to create meaningful change. His story continues to inspire, challenge, and guide those who aspire to rise above circumstances and embrace their true purpose.</p>
-
-  <h2 class="mx-4 mt-4 font-semibold text-3xl text-center">Key Highlights</h2>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-user-smile-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Youth Advocate</h3>
-  <p class="text-gray-600 text-sm">Championing the rights and potential of young people across Uganda.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-mic-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Public Speaker</h3>
-  <p class="text-gray-600 text-sm">Inspiring audiences with powerful messages of hope and resilience.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-star-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Mentor</h3>
-  <p class="text-gray-600 text-sm">Guiding the next generation of leaders and innovators.</p>
-</div>
-  <h2 class="mx-4 mt-4 font-semibold text-3xl text-center">Published Works</h2>
-
-
-  <div class="shadow-lg hover:border-blue-600 border my-3 bg-blue-800 rounded-lg mx-6 py-4 px-3 transition gap-3 flex justify-evenly items-center text-center">
-  <i class="text-2xl rounded-full text-blue-100 aspect-square ri-book-line hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <div class="text-left"><h3 class="text-white text-xl font-semibold">Mastering the Art of Public Speech</h3>
-  <p class="text-gray-200 text-sm">A comprehensive guide to effective communication and oratory skills.</p></div>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 bg-blue-800 rounded-lg mx-6 py-4 px-3 transition gap-3 flex justify-evenly items-center text-center">
-  <i class="text-2xl rounded-full text-blue-100 aspect-square ri-book-line hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <div class="text-left"><h3 class="text-white text-xl font-semibold">Wisdom Echoes</h3>
-  <p class="text-gray-200 text-sm">A Treasury of Powerful Quotes and insights for daily inspiration.</p></div>
-</div>
-
-  </main>
+<header class="page-header h-36 sm:h-44 md:h-52 flex justify-center items-center flex-col relative w-full">
+  <!-- Video Background with blue-900 fallback -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="capture.mp4" type="video/mp4">
+  </video>
   
-  <footer class="bg-gray-900">
-  <div class="mx-auto max-w-7xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+  <div class="content-overlay text-center px-4">
+    <h1 class="text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Our Founder</h1>
+    <p class="text-white text-sm sm:text-base md:text-lg mt-2">Meet the visionary behind TSI</p>
+  </div>
+</header>
+
+<main class="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-8 sm:py-12">
+  
+  <!-- Founder Profile Image -->
+  <div class="flex justify-center mb-6 sm:mb-8">
+    <img class="w-48 sm:w-56 md:w-64 lg:w-72 aspect-square rounded-lg shadow-xl object-cover" src="gallery/imran.jpg" alt="Ssebayiga Imran">
+  </div>
+
+  <!-- Founder Intro -->
+  <div class="text-center mb-8 sm:mb-10">
+    <h3 class="text-blue-500 font-bold text-xs sm:text-sm uppercase tracking-wide">MEET THE VISIONARY</h3>
+    <h2 class="font-semibold text-2xl sm:text-3xl lg:text-4xl mt-2 text-gray-900">Ssebayiga Imran</h2>
+    <h4 class="text-red-600 font-light text-lg sm:text-xl lg:text-2xl mt-2">Chief Executive Officer</h4>
+    <p class="text-center mx-4 sm:mx-6 italic text-sm sm:text-base text-gray-700 mt-4 max-w-2xl mx-auto">
+      "Leadership is not about position, but about impact and service."
+    </p>
+  </div>
+
+  <!-- Biography Section -->
+  <section class="mb-10 sm:mb-12">
+    <h2 class="font-semibold text-2xl sm:text-3xl lg:text-4xl text-center mb-4 sm:mb-6 text-gray-900">Biography</h2>
+    
+    <div class="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+      <p>
+        From humble beginnings to becoming a guiding voice for young people, Ssebayiga Imran has built a remarkable journey rooted in vision, resilience, and purpose. As a passionate youth advocate and advisor, he dedicates his life to empowering the next generation—helping them discover their potential, find their voices, and become agents of positive change.
+      </p>
+      
+      <p>
+        Imran is the author of <em>Mastering the Arts of Public Speech</em> and <em>Wisdom Echoes: A Treasury of Powerful Quotes</em>, works that combine practical guidance with profound insights. Through these books, he equips young people and readers of all ages with the tools to communicate effectively, think critically, and lead with integrity. His writings inspire courage, encourage reflection, and remind readers that wisdom and action together can transform lives.
+      </p>
+      
+      <p>
+        Beyond the page, Imran's influence resonates through his advocacy, mentorship programs, and community initiatives. He creates platforms where young leaders can thrive, express their ideas, and develop the confidence to shape their futures. Guided by values of integrity, empathy, and vision, he demonstrates that leadership is not about position, but about impact and service.
+      </p>
+      
+      <p>
+        Imran's journey is a testament to the power of perseverance and the belief that every young person carries the potential to create meaningful change. His story continues to inspire, challenge, and guide those who aspire to rise above circumstances and embrace their true purpose.
+      </p>
+    </div>
+  </section>
+
+  <!-- Key Highlights Section -->
+  <section class="mb-10 sm:mb-12">
+    <h2 class="font-semibold text-2xl sm:text-3xl lg:text-4xl text-center mb-6 sm:mb-8 text-gray-900">Key Highlights</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+      <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+        <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-user-smile-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+        <h3 class="text-xl sm:text-2xl mt-4 font-semibold text-gray-900">Youth Advocate</h3>
+        <p class="text-gray-600 text-sm sm:text-base mt-2">Championing the rights and potential of young people across Uganda.</p>
+      </div>
+      
+      <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+        <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-mic-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+        <h3 class="text-xl sm:text-2xl mt-4 font-semibold text-gray-900">Public Speaker</h3>
+        <p class="text-gray-600 text-sm sm:text-base mt-2">Inspiring audiences with powerful messages of hope and resilience.</p>
+      </div>
+      
+      <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+        <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-star-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+        <h3 class="text-xl sm:text-2xl mt-4 font-semibold text-gray-900">Mentor</h3>
+        <p class="text-gray-600 text-sm sm:text-base mt-2">Guiding the next generation of leaders and innovators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Published Works Section -->
+  <section class="mb-10 sm:mb-12">
+    <h2 class="font-semibold text-2xl sm:text-3xl lg:text-4xl text-center mb-6 sm:mb-8 text-gray-900">Published Works</h2>
+    
+    <div class="space-y-4 sm:space-y-6">
+      <div class="shadow-lg hover:shadow-xl border border-blue-600 bg-blue-800 rounded-lg p-4 sm:p-6 transition flex gap-4 sm:gap-6 items-center">
+        <i class="text-3xl sm:text-4xl rounded-full text-blue-100 aspect-square ri-book-line hover:text-white grid place-items-center transition w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0"></i>
+        <div class="text-left">
+          <h3 class="text-white text-lg sm:text-xl lg:text-2xl font-semibold">Mastering the Art of Public Speech</h3>
+          <p class="text-gray-200 text-sm sm:text-base mt-1">A comprehensive guide to effective communication and oratory skills.</p>
+        </div>
+      </div>
+      
+      <div class="shadow-lg hover:shadow-xl border border-blue-600 bg-blue-800 rounded-lg p-4 sm:p-6 transition flex gap-4 sm:gap-6 items-center">
+        <i class="text-3xl sm:text-4xl rounded-full text-blue-100 aspect-square ri-book-line hover:text-white grid place-items-center transition w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0"></i>
+        <div class="text-left">
+          <h3 class="text-white text-lg sm:text-xl lg:text-2xl font-semibold">Wisdom Echoes</h3>
+          <p class="text-gray-200 text-sm sm:text-base mt-1">A Treasury of Powerful Quotes and insights for daily inspiration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-gray-900">
+  <div class="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:py-16 sm:px-6 lg:space-y-16 lg:px-8">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div class="text-blue-400 items-center flex gap-2 dark:text-blue-300">
-          <img src="logo.png" class="w-16">
-          <b class="text-xl">Talent Search Initiative</b>
+          <img src="logo.png" class="w-12 sm:w-16" alt="TSI Logo">
+          <b class="text-lg sm:text-xl">Talent Search Initiative</b>
         </div>
 
-        <p class="mt-4 max-w-xs text-gray-300">
+        <p class="mt-4 max-w-xs text-sm sm:text-base text-gray-300">
           Discovering, nurturing, and showcasing exceptional talents across various sectors for personal and national development.
         </p>
 
-        <ul class="mt-8 flex text-2xl gap-6">
+        <ul class="mt-6 sm:mt-8 flex text-xl sm:text-2xl gap-4 sm:gap-6">
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+            <a href="https://www.instagram.com/talentsearchinitiativeuganda?igsh=MTZ4dmNpczZhNWE2YQ==" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="Instagram">
               <span class="ri-instagram-fill"></span>
             </a>
           </li>
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+            <a href="https://youtube.com/@talentsearchinitiative?si=q5AKKMXVoizNZVcM" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="YouTube">
               <span class="ri-youtube-fill"></span>
             </a>
           </li>
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+            <a href="https://www.tiktok.com/@talent.search.ini?_r=1&_t=ZM-92RBLdBAzFs" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="TikTok">
               <span class="ri-tiktok-fill"></span>
             </a>
           </li>
-          <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
-              <span class="ri-twitter-x-fill"></span>
-            </a>
-          </li>
-          
         </ul>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-2">
         <div>
-          <p class="font-medium text-white">Quick Links</p>
+          <p class="font-medium text-base sm:text-lg text-white">Quick Links</p>
 
-          <ul class="mt-6 space-y-4 text-sm">
+          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
             <li>
-              <a href="about.html" class=" transition hover:opacity-75 text-gray-200">
-                About Us
-              </a>
+              <a href="about.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">About Us</a>
             </li>
             <li>
-              <a href="programs.html" class=" transition hover:opacity-75 text-gray-200">
-                Our Programs
-              </a>
+              <a href="programs.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Our Programs</a>
             </li>
             <li>
-              <a href="events.html" class=" transition hover:opacity-75 text-gray-200">
-                Events
-              </a>
+              <a href="events.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Events</a>
             </li>
             <li>
-              <a href="membership.html" class=" transition hover:opacity-75 text-gray-200">
-                Membership
-              </a>
+              <a href="membership.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Membership</a>
             </li>
             <li>
-              <a href="contact.html" class=" transition hover:opacity-75 text-gray-200">
-                Contact Us
-              </a>
+              <a href="contact.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Contact Us</a>
             </li>
-            
           </ul>
         </div>
 
-
-      </div>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
         <div>
-          <p class="font-medium text-white">Contact Us</p>
+          <p class="font-medium text-base sm:text-lg text-white">Contact Us</p>
 
-          <ul class="mt-6 *:flex *:items-center *:gap-1 *:my-2 text-sm">
-            <li class="space-x-2 text-gray-200">
-              <span class="text-xl ri-map-pin-line"></span>
-              Kampala, Uganda
+          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
+            <li class="flex items-start gap-2 text-gray-200">
+              <span class="text-lg sm:text-xl ri-map-pin-line flex-shrink-0 mt-0.5"></span>
+              <span>Kampala, Uganda</span>
             </li>
-            <li class="space-x-2 text-gray-200">
-              <span class="text-xl ri-phone-line"></span>
-              0786106501 / 0755388929
+            <li class="flex items-start gap-2 text-gray-200">
+              <span class="text-lg sm:text-xl ri-phone-line flex-shrink-0 mt-0.5"></span>
+              <span>0786106501 / 0755388929</span>
             </li>
-            <li class="space-x-2 text-gray-200">
-              <span class="text-xl ri-mail-line"></span>
-              info@talentsearchinitiative.com
+            <li class="flex items-start gap-2 text-gray-200">
+              <span class="text-lg sm:text-xl ri-mail-line flex-shrink-0 mt-0.5"></span>
+              <span class="break-all">info@talentsearchinitiative.click</span>
             </li>
-            
           </ul>
         </div>
-
-
       </div>
     </div>
 
-    <p class="text-xs text-gray-400">
+    <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
       © 2025. Talent Search Initiative. All rights reserved.
     </p>
+    <p class="text-center text-sm text-white underline"><a href="">Developed and Maintained by Amanda Technologies Uganda</a></p>
   </div>
 </footer>
 
+<script>
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const nav = document.getElementById('nav');
+    const menuButton = document.querySelector('[onclick*="nav"]');
+    if (!nav.contains(e.target) && !menuButton?.contains(e.target) && nav.style.left === '0vw') {
+      nav.style.left = '100vw';
+    }
+  });
+</script>
 </body>
 </html>

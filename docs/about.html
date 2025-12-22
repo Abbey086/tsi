@@ -5,32 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/remixicon.css">
   <script src="js/tw.js"></script>
-  <title>TSI</title>
+  <title>TSI - About Us</title>
   <style>
-    .wws:hover img{
-      scale:1.1;
-      transition:  all .35s linear;
+    /* Video background styles */
+    .video-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    
+    /* Rotate video on desktop */
+    @media (min-width: 768px) {
+
+    }
+    
+    /* Mobile menu improvements */
+    #nav {
+      transition: left 0.3s ease-in-out;
+    }
+    
+    /* Ensure content is above video */
+    .content-overlay {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Page header with video background and blue-900 fallback */
+    .page-header {
+      background-color: #1e3a8a;
+      position: relative;
+      overflow: hidden;
     }
   </style>
 </head>
 <body>
-  <header class="bg-white">
+<header class="bg-white sticky top-0 z-50 shadow-sm">
   <div class="mx-auto bg-white relative max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 md:w-full md:justify-center items-center justify-between">
-      <div class="flex-1 md:flex md:items-center md:justify-center">
-        <a class="block flex items-center gap-2 text-blue-600" href="#">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex-1 md:flex md:items-center md:justify-center lg:justify-start">
+        <a class="flex items-center gap-2 text-blue-600" href="index.html">
           <span class="sr-only">Home</span>
-          <img src="logo.png" class="w-11">
-          <span class="font-extrabold md:hidden text-3xl">TSI</span>
-          <span class="font-extrabold hidden md:inline text-xl">Talent Search Initiative</span>
+          <img src="logo.png" class="w-10 sm:w-11" alt="TSI Logo">
+          <span class="font-extrabold text-2xl sm:text-3xl md:hidden">TSI</span>
+          <span class="font-extrabold hidden md:inline text-lg lg:text-xl">Talent Search Initiative</span>
         </a>
       </div>
 
       <div class="md:flex md:items-center md:gap-12">
-
         <div class="flex items-center gap-4">
           <div class="block md:hidden">
-            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75" aria-label="Open menu">
               <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
@@ -40,226 +68,257 @@
       </div>
     </div>
   </div>
-          <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5  text-2xl font-light fixed  inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-base md:items-center md:flex md:justify-between">
-            <li>
-              <a class="text-white hover:underline" href="index.html">Home </a>
-            </li>
-            <li  onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 "></li>
-
-            <li>
-              <a class="text-white hover:underline" href="about.html"> About </a>
-            </li>
-
-            <li>
-              <a class="text-white hover:underline" href="founder.html"> Founder </a>
-            </li>
-
-            <li>
-              <a class="text-white hover:underline" href="directors.html"> Directors </a>
-            </li>
-
-            <li>
-              <a class="text-white hover:underline" href="ambassadors.html"> Ambassadors </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="programs.html">Programs </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="membership.html"> Membership </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="gallery.html"> Gallery </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="events.html"> Events </a>
-            </li>
-            <li>
-              <a class="text-white hover:underline" href="contact.html"> Contact </a>
-            </li>
-          </ul>
+  
+  <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5 text-xl sm:text-2xl font-light fixed inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-sm lg:text-base md:items-center md:flex md:justify-center md:gap-6 lg:gap-8 md:bg-white">
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="index.html">Home</a>
+    </li>
+    <li onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 cursor-pointer"></li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="about.html">About</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="founder.html">Founder</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="directors.html">Directors</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="ambassadors.html">Ambassadors</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="programs.html">Programs</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="membership.html">Membership</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="gallery.html">Gallery</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="events.html">Events</a>
+    </li>
+    <li>
+      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="contact.html">Contact</a>
+    </li>
+  </ul>
 </header>
 
-  <header class="h-44 flex justify-center items-center items-center flex-col relative w-full">
-    <img class="brightness-50 w-full h-full absolute inset-0 -z-10 object-center" src="S.jpg">
-    <h1 class="text-cyan-400 font-bold text-3xl">About TSI</h1>
-    <p class="text-white text-sm text-center mx-5">Talk to us we are all ears!</p>
-  </header>
-  <main class="p-3">
-    <h3 class="text-blue-500 font-bold text-sm text-center">OUR STORY</h3>
-  <h2 class="mx-4 font-semibold text-3xl text-center">Founded on Purpose</h2>
-<p class="text-gray-800 text-sm">Talent Search Initiative (TSI) was founded on September 3, 2025, in Kampala, Uganda, with a burning desire to bridge the gap between raw potential and professional success.
-<br><br>
-We believe that every young person possesses a unique gift that, if properly nurtured, can become a vehicle for both personal success and national development.</p>
-  <div class="p-3 text-sm bg-gray-100 m-1.5 mt-3 rounded-lg">
-    <h2 class="text-lg font-semibold"><i class="ri-eye-fill text-red-600"></i> Our Vision</h2>
-    <p class="text-gray-900">
-To build a Uganda where every talent is discovered, nurtured and transformed into a vehicle for personal and national development.</p>
-  </div>
-  <div class="p-3 text-sm bg-gray-100 m-1.5  rounded-lg">
-    <h2 class="text-lg font-semibold"><i class="ri-flag-line text-blue-600"></i> Our Mission</h2>
-    <p class="text-gray-900">
-To discover, empower and promote talents across all sectors, fostering creativity, innovation and sustainable livelihoods for young people and community.</p>
-  </div>
+<header class="page-header h-36 sm:h-44 md:h-52 flex justify-center items-center flex-col relative w-full">
+  <!-- Video Background with blue-900 fallback -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="capture.mp4" type="video/mp4">
+  </video>
   
-  <h2 class="mx-4 font-semibold text-3xl text-center">Core Values</h2>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-shield-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Integrity</h3>
-  <p class="text-gray-600 text-sm">We uphold the highest standards of honesty.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-user-smile-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Inclusivity</h3>
-  <p class="text-gray-600 text-sm">We welcome talents from all backgrounds.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-lightbulb-flash-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Creativity</h3>
-  <p class="text-gray-600 text-sm">We celebrate original thinking and art.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-heart-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Commitment</h3>
-  <p class="text-gray-600 text-sm">We are dedicated to our cause.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-checkbox-circle-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">Transparency</h3>
-  <p class="text-gray-600 text-sm">We operate with openness.</p>
-</div>
-  <div class="shadow-lg hover:border-blue-600 border my-3 rounded-lg mx-6 py-5 px-3 transition flex justify-center flex-col text-center">
-  <i class="text-2xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-flag-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-1/5 "></i>
-  <h3 class="text-2xl mt-3 font-semibold">innovation</h3>
-  <p class="text-gray-600 text-sm">We embrace new ways of solving problems.</p>
-</div>
-<ol class="px-5">
-  <h2 class="mx-4 mt-6 mb-2 font-semibold text-3xl text-center">Objectives</h2>
-  <style>
-  
-    ol li:before{
-      background: blue;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      color: white;
-      padding-inline: 5px;
-    }
-  </style>
-  <li class="flex my-1 bg-gray-100 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">1</b>Identify and nurture talents in music, arts, sports, technology, agriculture and entrepreneurship</li>
- 
-  <li class="flex bg-gray-100 my-1 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">2</b>Provide mentorship, training and development programs</li>
-  <li class="flex bg-gray-100 my-1 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">3</b>Organize talent shows, competitions and expos</li>
-  <li class="flex bg-gray-100 my-1 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">4</b>Collaborate with government, private sectors and civil society</li>
-  <li class="flex bg-gray-100 my-1 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">5</b>Support talent commercialization and self-employment</li>
-  <li class="flex bg-gray-100 my-1 p-3 rounded-lg  gap-2"><b class="rounded-full w-5 h-5 grid place-items-center text-sm bg-blue-600 aspect-square text-white text-center ">6</b>Advocate for policies supporting talent development</li>
-</ol>
+  <div class="content-overlay text-center px-4">
+    <h1 class="text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About TSI</h1>
+    <p class="text-white text-sm sm:text-base md:text-lg mt-2">Talk to us we are all ears!</p>
+  </div>
+</header>
 
+<main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8 sm:py-12">
+  <h3 class="text-blue-500 font-bold text-xs sm:text-sm text-center">OUR STORY</h3>
+  <h2 class="mx-4 font-semibold text-2xl sm:text-3xl lg:text-4xl my-3 sm:my-4 text-center">Founded on Purpose</h2>
+  <p class="text-gray-800 text-sm sm:text-base leading-relaxed max-w-4xl mx-auto">
+    Talent Search Initiative (TSI) was founded on September 3, 2025, in Kampala, Uganda, with a burning desire to bridge the gap between raw potential and professional success.
+    <br><br>
+    We believe that every young person possesses a unique gift that, if properly nurtured, can become a vehicle for both personal success and national development.
+  </p>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-8 sm:mt-10">
+    <div class="p-4 sm:p-6 text-sm sm:text-base bg-gray-100 rounded-lg">
+      <h2 class="text-lg sm:text-xl font-semibold">
+        <i class="ri-eye-fill text-red-600"></i> Our Vision
+      </h2>
+      <p class="text-gray-900 mt-2">
+        To build a Uganda where every talent is discovered, nurtured and transformed into a vehicle for personal and national development.
+      </p>
+    </div>
+    
+    <div class="p-4 sm:p-6 text-sm sm:text-base bg-gray-100 rounded-lg">
+      <h2 class="text-lg sm:text-xl font-semibold">
+        <i class="ri-flag-line text-blue-600"></i> Our Mission
+      </h2>
+      <p class="text-gray-900 mt-2">
+        To discover, empower and promote talents across all sectors, fostering creativity, innovation and sustainable livelihoods for young people and community.
+      </p>
+    </div>
+  </div>
+  
+  <h2 class="mx-4 font-semibold text-2xl sm:text-3xl lg:text-4xl my-8 sm:my-10 text-center">Core Values</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+      <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-shield-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+      <h3 class="text-xl sm:text-2xl mt-4 font-semibold">Integrity</h3>
+      <p class="text-gray-600 text-sm sm:text-base mt-2">We uphold the highest standards of honesty.</p>
+    </div>
+    
+    <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+      <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-user-smile-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+      <h3 class="text-xl sm:text-2xl mt-4 font-semibold">Inclusivity</h3>
+      <p class="text-gray-600 text-sm sm:text-base mt-2">We welcome talents from all backgrounds.</p>
+    </div>
+    
+    <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+      <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-lightbulb-flash-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+      <h3 class="text-xl sm:text-2xl mt-4 font-semibold">Creativity</h3>
+      <p class="text-gray-600 text-sm sm:text-base mt-2">We celebrate original thinking and art.</p>
+    </div>
+    
+    <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+      <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-heart-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+      <h3 class="text-xl sm:text-2xl mt-4 font-semibold">Commitment</h3>
+      <p class="text-gray-600 text-sm sm:text-base mt-2">We are dedicated to our cause.</p>
+    </div>
+    
+    <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+      <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-checkbox-circle-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+      <h3 class="text-xl sm:text-2xl mt-4 font-semibold">Transparency</h3>
+      <p class="text-gray-600 text-sm sm:text-base mt-2">We operate with openness.</p>
+    </div>
+    
+    <div class="shadow-lg hover:border-blue-600 border rounded-lg py-6 sm:py-8 px-4 sm:px-6 transition flex flex-col text-center">
+      <i class="text-3xl sm:text-4xl rounded-full bg-blue-100 text-blue-600 aspect-square ri-flag-line hover:bg-blue-600 hover:text-white grid place-items-center mx-auto transition w-16 sm:w-20"></i>
+      <h3 class="text-xl sm:text-2xl mt-4 font-semibold">Innovation</h3>
+      <p class="text-gray-600 text-sm sm:text-base mt-2">We embrace new ways of solving problems.</p>
+    </div>
+  </div>
+
+  <div class="mt-12 sm:mt-16">
+    <h2 class="mx-4 font-semibold text-2xl sm:text-3xl lg:text-4xl mb-6 sm:mb-8 text-center">Objectives</h2>
+    
+    <ol class="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
+      <li class="flex gap-3 sm:gap-4 bg-gray-100 p-4 sm:p-5 rounded-lg text-sm sm:text-base">
+        <b class="rounded-full min-w-[28px] w-7 h-7 sm:min-w-[32px] sm:w-8 sm:h-8 grid place-items-center text-xs sm:text-sm bg-blue-600 text-white flex-shrink-0">1</b>
+        <span>Identify and nurture talents in music, arts, sports, technology, agriculture and entrepreneurship</span>
+      </li>
+      
+      <li class="flex gap-3 sm:gap-4 bg-gray-100 p-4 sm:p-5 rounded-lg text-sm sm:text-base">
+        <b class="rounded-full min-w-[28px] w-7 h-7 sm:min-w-[32px] sm:w-8 sm:h-8 grid place-items-center text-xs sm:text-sm bg-blue-600 text-white flex-shrink-0">2</b>
+        <span>Provide mentorship, training and development programs</span>
+      </li>
+      
+      <li class="flex gap-3 sm:gap-4 bg-gray-100 p-4 sm:p-5 rounded-lg text-sm sm:text-base">
+        <b class="rounded-full min-w-[28px] w-7 h-7 sm:min-w-[32px] sm:w-8 sm:h-8 grid place-items-center text-xs sm:text-sm bg-blue-600 text-white flex-shrink-0">3</b>
+        <span>Organize talent shows, competitions and expos</span>
+      </li>
+      
+      <li class="flex gap-3 sm:gap-4 bg-gray-100 p-4 sm:p-5 rounded-lg text-sm sm:text-base">
+        <b class="rounded-full min-w-[28px] w-7 h-7 sm:min-w-[32px] sm:w-8 sm:h-8 grid place-items-center text-xs sm:text-sm bg-blue-600 text-white flex-shrink-0">4</b>
+        <span>Collaborate with government, private sectors and civil society</span>
+      </li>
+      
+      <li class="flex gap-3 sm:gap-4 bg-gray-100 p-4 sm:p-5 rounded-lg text-sm sm:text-base">
+        <b class="rounded-full min-w-[28px] w-7 h-7 sm:min-w-[32px] sm:w-8 sm:h-8 grid place-items-center text-xs sm:text-sm bg-blue-600 text-white flex-shrink-0">5</b>
+        <span>Support talent commercialization and self-employment</span>
+      </li>
+      
+      <li class="flex gap-3 sm:gap-4 bg-gray-100 p-4 sm:p-5 rounded-lg text-sm sm:text-base">
+        <b class="rounded-full min-w-[28px] w-7 h-7 sm:min-w-[32px] sm:w-8 sm:h-8 grid place-items-center text-xs sm:text-sm bg-blue-600 text-white flex-shrink-0">6</b>
+        <span>Advocate for policies supporting talent development</span>
+      </li>
+    </ol>
+  </div>
 </main>
 
-  
-  <footer class="bg-gray-900">
-  <div class="mx-auto max-w-7xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
+<footer class="bg-gray-900">
+  <div class="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:py-16 sm:px-6 lg:space-y-16 lg:px-8">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
         <div class="text-blue-400 items-center flex gap-2 dark:text-blue-300">
-          <img src="logo.png" class="w-16">
-          <b class="text-xl">Talent Search Initiative</b>
+          <img src="logo.png" class="w-12 sm:w-16" alt="TSI Logo">
+          <b class="text-lg sm:text-xl">Talent Search Initiative</b>
         </div>
 
-        <p class="mt-4 max-w-xs text-gray-300">
+        <p class="mt-4 max-w-xs text-sm sm:text-base text-gray-300">
           Discovering, nurturing, and showcasing exceptional talents across various sectors for personal and national development.
         </p>
 
-        <ul class="mt-8 flex text-2xl gap-6">
+        <ul class="mt-6 sm:mt-8 flex text-xl sm:text-2xl gap-4 sm:gap-6">
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+            <a href="https://www.instagram.com/talentsearchinitiativeuganda?igsh=MTZ4dmNpczZhNWE2YQ==" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="Instagram">
               <span class="ri-instagram-fill"></span>
             </a>
           </li>
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+            <a href="https://youtube.com/@talentsearchinitiative?si=q5AKKMXVoizNZVcM" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="YouTube">
               <span class="ri-youtube-fill"></span>
             </a>
           </li>
           <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
+            <a href="https://www.tiktok.com/@talent.search.ini?_r=1&_t=ZM-92RBLdBAzFs" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="TikTok">
               <span class="ri-tiktok-fill"></span>
             </a>
           </li>
-          <li>
-            <a href="#" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200">
-              <span class="ri-twitter-x-fill"></span>
-            </a>
-          </li>
-          
         </ul>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-2">
         <div>
-          <p class="font-medium text-white">Quick Links</p>
+          <p class="font-medium text-base sm:text-lg text-white">Quick Links</p>
 
-          <ul class="mt-6 space-y-4 text-sm">
+          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
             <li>
-              <a href="about.html" class=" transition hover:opacity-75 text-gray-200">
-                About Us
-              </a>
+              <a href="about.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">About Us</a>
             </li>
             <li>
-              <a href="programs.html" class=" transition hover:opacity-75 text-gray-200">
-                Our Programs
-              </a>
+              <a href="programs.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Our Programs</a>
             </li>
             <li>
-              <a href="events.html" class=" transition hover:opacity-75 text-gray-200">
-                Events
-              </a>
+              <a href="events.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Events</a>
             </li>
             <li>
-              <a href="membership.html" class=" transition hover:opacity-75 text-gray-200">
-                Membership
-              </a>
+              <a href="membership.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Membership</a>
             </li>
             <li>
-              <a href="contact.html" class=" transition hover:opacity-75 text-gray-200">
-                Contact Us
-              </a>
+              <a href="contact.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Contact Us</a>
             </li>
-            
           </ul>
         </div>
 
-
-      </div>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
         <div>
-          <p class="font-medium text-white">Contact Us</p>
+          <p class="font-medium text-base sm:text-lg text-white">Contact Us</p>
 
-          <ul class="mt-6 *:flex *:items-center *:gap-1 *:my-2 text-sm">
-            <li class="space-x-2 text-gray-200">
-              <span class="text-xl ri-map-pin-line"></span>
-              Kampala, Uganda
+          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
+            <li class="flex items-start gap-2 text-gray-200">
+              <span class="text-lg sm:text-xl ri-map-pin-line flex-shrink-0 mt-0.5"></span>
+              <span>Kampala, Uganda</span>
             </li>
-            <li class="space-x-2 text-gray-200">
-              <span class="text-xl ri-phone-line"></span>
-              0786106501 / 0755388929
+            <li class="flex items-start gap-2 text-gray-200">
+              <span class="text-lg sm:text-xl ri-phone-line flex-shrink-0 mt-0.5"></span>
+              <span>0786106501 / 0755388929</span>
             </li>
-            <li class="space-x-2 text-gray-200">
-              <span class="text-xl ri-mail-line"></span>
-              info@talentsearchinitiative.com
+            <li class="flex items-start gap-2 text-gray-200">
+              <span class="text-lg sm:text-xl ri-mail-line flex-shrink-0 mt-0.5"></span>
+              <span class="break-all">info@talentsearchinitiative.click</span>
             </li>
-            
           </ul>
         </div>
-
-
       </div>
     </div>
 
-    <p class="text-xs text-gray-400">
+    <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
       © 2025. Talent Search Initiative. All rights reserved.
     </p>
+    <p class="text-center text-sm text-white underline"><a href="">Developed and Maintained by Amanda Technologies Uganda</a></p>
   </div>
 </footer>
 
+<script>
+  // Slow down video playback to 6x slower (10s video will take ~60s)
+  document.querySelectorAll('.video-bg').forEach(video => {
+    video.playbackRate = 1;
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const nav = document.getElementById('nav');
+    const menuButton = document.querySelector('[onclick*="nav"]');
+    if (!nav.contains(e.target) && !menuButton?.contains(e.target) && nav.style.left === '0vw') {
+      nav.style.left = '100vw';
+    }
+  });
+</script>
 </body>
 </html>
