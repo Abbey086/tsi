@@ -8,11 +8,7 @@
 *
 * Date: 2024-02-25
 */
-@font-face {
-  font-family: "kalnia";
-  src: url('./sm.otf');
-  font-display: swap;
-}
+
 @font-face {
   font-family: "remixicon";
   src: url('remixicon.eot?t=1708865856766#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -22,12 +18,7 @@
   font-display: swap;
 }
 
-*{
-  font-family: 'kalnia' !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+ 
 [class^="ri-"], [class*=" ri-"] {
   font-family: 'remixicon' !important;
   font-style: normal;
