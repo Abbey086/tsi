@@ -18,7 +18,9 @@
   font-display: swap;
 }
 
- 
+.site-nav .uppercase.text-gray-400{
+  display: none;
+}
 [class^="ri-"], [class*=" ri-"] {
   font-family: 'remixicon' !important;
   font-style: normal;
