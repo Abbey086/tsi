@@ -5,321 +5,545 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/remixicon.css">
   <script src="js/tw.js"></script>
-  <title>TSI - Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Contact Us | Talent Search Initiative Uganda</title>
+  
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="TSI" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Contact Us | Talent Search Initiative Uganda">
+  <meta name="description" content="Get in touch with Talent Search Initiative Uganda. Reach out for inquiries, partnerships, talent registration, and program details.">
+  <meta name="keywords" content="Contact TSI Uganda, Talent Search Initiative Phone, Kampala Uganda Talent Organization, Contact TSI">
+  <meta name="author" content="Talent Search Initiative Uganda">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://talentsearchinitiative.click/contact.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://talentsearchinitiative.click/contact.html">
+  <meta property="og:title" content="Contact Us | Talent Search Initiative Uganda">
+  <meta property="og:description" content="We'd love to hear from you. Reach out to Talent Search Initiative Uganda today.">
+  <meta property="og:image" content="https://talentsearchinitiative.click/logo.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#11d8e6">
+
   <style>
-    /* Video background styles */
-    .video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
+    :root{
+      --cyan:#11d8e6;
+      --cyan-dark:#0bb8c5;
+      --ink:#0a0a0a;
+      --muted:#727272;
+      --line:#e7e7e7;
     }
-    
-    /* Mobile menu improvements */
-    #nav {
-      transition: left 0.3s ease-in-out;
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#fff;
+      font-family:"DM Sans",sans-serif;
     }
-    
-    /* Ensure content is above video */
-    .content-overlay {
-      position: relative;
-      z-index: 1;
+
+    .display{font-family:"Manrope",sans-serif}
+    .thin-line{border-color:var(--line)}
+
+    /* Site Navigation */
+    .site-nav{
+      position:fixed;
+      top:14px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(1200px,calc(100% - 28px));
+      z-index:80;
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      backdrop-filter:blur(18px);
+      border-radius:999px;
     }
-    
-    /* Page header with video background and blue-900 fallback */
-    .page-header {
-      background-color: #1e3a8a;
-      position: relative;
-      overflow: hidden;
+
+    .nav-link{
+      position:relative;
+      transition:.25s ease;
+    }
+    .nav-link:hover{color:var(--cyan-dark)}
+    .nav-link:after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-7px;
+      height:2px;
+      background:var(--cyan);
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:.25s ease;
+    }
+    .nav-link:hover:after,
+    .nav-link.active:after{transform:scaleX(1)}
+
+    /* Buttons */
+    .btn-main,.btn-ghost{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:13px 19px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      transition:.25s ease;
+    }
+    .btn-main{
+      background:var(--cyan);
+      color:#061012;
+      box-shadow:0 12px 35px rgba(17,216,230,.24);
+    }
+    .btn-main:hover{background:#fff;color:#000;transform:translateY(-2px)}
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,.3);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      backdrop-filter:blur(10px);
+    }
+    .btn-ghost:hover{background:#fff;color:#000}
+
+    /* Hero Section */
+    .hero-contact{
+      position:relative;
+      min-height:48vh;
+      display:flex;
+      align-items:flex-end;
+      padding:160px 0 60px;
+      background:#0d0d0d;
+      overflow:hidden;
+    }
+    .video-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0.25;
+      pointer-events:none;
+    }
+    .hero-contact:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(0deg, #0d0d0d 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.8) 100%);
+      z-index:1;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.24);
+      background:rgba(0,0,0,.18);
+      color:#fff;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      backdrop-filter:blur(10px);
+    }
+    .eyebrow .dot{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 16px var(--cyan);
+    }
+
+    /* Typography */
+    .kicker{
+      color:var(--cyan-dark);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-weight:800;
+    }
+
+    /* Sections */
+    .section{padding:90px 0}
+    .section-dark{background:#090909;color:#fff}
+
+    /* Cards */
+    .info-card{
+      background:#ffffff;
+      border:1px solid #e7e7e7;
+      padding:28px 24px;
+      border-radius:16px;
+      transition:all .3s ease;
+      display:flex;
+      align-items:flex-start;
+      gap:20px;
+    }
+    .info-card:hover{
+      transform:translateY(-4px);
+      border-color:var(--cyan);
+      box-shadow:0 15px 35px rgba(0,0,0,.06);
+    }
+    .info-icon{
+      width:52px;
+      height:52px;
+      border-radius:14px;
+      background:rgba(17,216,230,0.12);
+      color:var(--cyan-dark);
+      display:grid;
+      place-items:center;
+      font-size:24px;
+      flex-shrink:0;
+    }
+
+    /* Form Styles */
+    .form-input{
+      width:100%;
+      border-radius:12px;
+      border:1px solid #e2e8f0;
+      background:#f8fafc;
+      padding:14px 16px;
+      font-size:14px;
+      color:#0f172a;
+      outline:none;
+      transition:all .2s ease;
+    }
+    .form-input:focus{
+      background:#fff;
+      border-color:var(--cyan-dark);
+      box-shadow:0 0 0 3px rgba(17,216,230,0.18);
+    }
+
+    .cta{
+      background:#0b0b0b;
+      color:#fff;
+      padding:84px 0;
+    }
+
+    footer{
+      background:#fff;
+      border-top:1px solid var(--line);
+    }
+
+    @media (max-width:767px){
+      .site-nav{width:calc(100% - 18px);top:9px}
+      .hero-contact{padding:130px 0 40px;min-height:auto}
+      .section{padding:60px 0}
+      .info-card{padding:20px;gap:14px}
     }
   </style>
 </head>
+
 <body>
-<header class="bg-white sticky top-0 z-50 shadow-sm">
-  <div class="mx-auto bg-white relative max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex-1 md:flex md:items-center md:justify-center lg:justify-start">
-        <a class="flex items-center gap-2 text-blue-600" href="index.html">
-          <span class="sr-only">Home</span>
-          <img src="logo.png" class="w-10 sm:w-11" alt="TSI Logo">
-          <span class="font-extrabold text-2xl sm:text-3xl md:hidden">TSI</span>
-          <span class="font-extrabold hidden md:inline text-lg lg:text-xl">Talent Search Initiative</span>
-        </a>
+
+  <!-- Navigation -->
+  <header class="site-nav">
+    <div class="flex items-center justify-between px-4 sm:px-6 h-[64px]">
+      <a href="index.html" class="flex items-center gap-2.5 min-w-0">
+        <img src="logo.png" class="w-9 h-9 object-contain" alt="TSI Logo">
+        <div class="min-w-0">
+          <div class="display font-extrabold text-[15px] sm:text-base tracking-[-0.03em] truncate">Talent Search Initiative</div>
+          <div class="text-[8px] uppercase tracking-[.34em] text-gray-400">Uganda</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 lg:gap-9 text-[12px] font-semibold">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="programs.html">Programs</a>
+        <a class="nav-link" href="membership.html">Membership</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+      </nav>
+
+      <a href="membership.html" class="hidden sm:inline-flex btn-main !py-2.5 !px-4 text-[11px]">
+        Join TSI <i class="ri-arrow-right-up-line"></i>
+      </a>
+
+      <button
+        class="md:hidden w-10 h-10 grid place-items-center rounded-full bg-black text-white"
+        aria-label="Open menu"
+        onclick="toggleMenu(true)"
+      >
+        <i class="ri-menu-4-line text-lg"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[90] bg-white translate-x-full transition-transform duration-300 md:hidden">
+    <div class="h-full p-6 flex flex-col">
+      <div class="flex items-center justify-between">
+        <div class="display font-extrabold text-lg">TSI Uganda</div>
+        <button class="w-10 h-10 rounded-full bg-black text-white grid place-items-center" onclick="toggleMenu(false)" aria-label="Close menu">
+          <i class="ri-close-line text-lg"></i>
+        </button>
       </div>
 
-      <div class="md:flex md:items-center md:gap-12">
-        <div class="flex items-center gap-4">
-          <div class="block md:hidden">
-            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75" aria-label="Open menu">
-              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
+      <nav class="mt-16 grid gap-8">
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="index.html">Home</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="about.html">About</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="programs.html">Programs</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="membership.html">Membership</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight text-cyan-600" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="mt-auto border-t pt-6 text-sm text-gray-500">
+        Discovering, nurturing and showcasing exceptional talent across Uganda.
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Header -->
+  <section class="hero-contact">
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="capture.mp4" type="video/mp4">
+    </video>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-3xl">
+        <div class="eyebrow"><span class="dot"></span> Reach Out To Us</div>
+        <h1 class="display text-white font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight mt-6 leading-[1.02]">
+          Get In Touch.<br>
+          <span class="text-[#11d8e6]">We'd Love To Hear From You.</span>
+        </h1>
+        <p class="mt-6 text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Have questions about our programs, talent identification, partnerships, or memberships? Contact our team today.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Cards & Details -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Phone Card -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="ri-phone-line"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base">Phone Numbers</h3>
+            <div class="text-sm text-gray-600 mt-2 space-y-1">
+              <a href="tel:0786106501" class="block hover:text-[#0bb8c5] transition">0786106501</a>
+              <a href="tel:0755388929" class="block hover:text-[#0bb8c5] transition">0755388929</a>
+              <a href="tel:0701436179" class="block hover:text-[#0bb8c5] transition">0701436179</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Card -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="ri-mail-line"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base">Email Address</h3>
+            <div class="text-sm text-gray-600 mt-2">
+              <a href="mailto:info@talentsearchinitiative.click" class="break-all hover:text-[#0bb8c5] transition">
+                info@talentsearchinitiative.click
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location Card -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="ri-map-pin-line"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base">Our Location</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              Kampala, Uganda
+            </p>
+          </div>
+        </div>
+
+        <!-- Office Hours Card -->
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="ri-time-line"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base">Office Hours</h3>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+              Mon – Fri: 09:00AM – 05:00PM<br>
+              Sat: 10:00AM – 02:00PM
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="section bg-[#fafafa] border-t border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <div class="kicker">Direct Communication</div>
+        <h2 class="display text-3xl sm:text-4xl font-extrabold mt-2 text-gray-900">Send Us a Message</h2>
+        <p class="text-gray-500 text-sm mt-3">Fill out the form below and our team will get back to you shortly.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-xl">
+        <form action="https://formsubmit.co/info@talentsearchinitiative.click" method="POST" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://talentsearchinitiative.click/thanks.html">
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs uppercase tracking-wider font-extrabold text-gray-700 mb-2" for="name">Full Name</label>
+            <input 
+              class="form-input" 
+              id="name" 
+              type="text" 
+              placeholder="Enter your full name"
+              required
+              name="Name"
+            >
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider font-extrabold text-gray-700 mb-2" for="email">Email Address</label>
+            <input 
+              class="form-input" 
+              id="email" 
+              type="email" 
+              placeholder="your.email@example.com"
+              required
+              name="Email"
+            >
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider font-extrabold text-gray-700 mb-2" for="phone">Phone Number</label>
+            <input 
+              class="form-input" 
+              id="phone" 
+              type="tel" 
+              placeholder="0700000000"
+              required
+              name="Phone"
+            >
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs uppercase tracking-wider font-extrabold text-gray-700 mb-2" for="message">Your Message</label>
+            <textarea 
+              class="form-input resize-none" 
+              id="message" 
+              rows="5" 
+              placeholder="Tell us how we can help you..."
+              required
+              name="Message"
+            ></textarea>
+          </div>
+
+          <div class="sm:col-span-2 pt-2">
+            <button 
+              class="w-full btn-main !py-4 text-sm font-bold flex items-center justify-center gap-2 cursor-pointer" 
+              type="submit"
+            >
+              <i class="ri-send-plane-fill"></i>
+              Send Message
             </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid md:grid-cols-[1.2fr_.8fr] gap-10">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <img src="logo.png" class="w-11 h-11 object-contain" alt="TSI Logo">
+            <div>
+              <div class="display font-extrabold text-lg">Talent Search Initiative</div>
+              <div class="text-[8px] uppercase tracking-[.34em] text-gray-400">Uganda</div>
+            </div>
+          </div>
+
+          <p class="mt-5 max-w-md text-sm leading-7 text-gray-500">
+            Discovering, nurturing and showcasing exceptional talents across various sectors
+            for personal and national development.
+          </p>
+
+          <div class="mt-6 flex gap-3">
+            <a class="w-10 h-10 border rounded-full grid place-items-center hover:border-cyan-400 hover:text-cyan-600 transition"
+               href="https://www.instagram.com/talentsearchinitiativeuganda?igsh=MTZ4dmNpczZhNWE2YQ=="
+               target="_blank" rel="noreferrer" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a class="w-10 h-10 border rounded-full grid place-items-center hover:border-cyan-400 hover:text-cyan-600 transition"
+               href="https://youtube.com/@talentsearchinitiative?si=q5AKKMXVoizNZVcM"
+               target="_blank" rel="noreferrer" aria-label="YouTube">
+              <i class="ri-youtube-line"></i>
+            </a>
+            <a class="w-10 h-10 border rounded-full grid place-items-center hover:border-cyan-400 hover:text-cyan-600 transition"
+               href="https://www.tiktok.com/@talent.search.ini?_r=1&_t=ZM-92RBLdBAzFs"
+               target="_blank" rel="noreferrer" aria-label="TikTok">
+              <i class="ri-tiktok-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 text-sm">
+          <div>
+            <div class="font-bold">Explore</div>
+            <div class="mt-4 grid gap-3 text-gray-500">
+              <a href="about.html" class="hover:text-cyan-600 transition">About Us</a>
+              <a href="programs.html" class="hover:text-cyan-600 transition">Programs</a>
+              <a href="membership.html" class="hover:text-cyan-600 transition">Membership</a>
+              <a href="contact.html" class="hover:text-cyan-600 transition">Contact Us</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="font-bold">Contact</div>
+            <div class="mt-4 grid gap-3 text-gray-500 leading-6">
+              <div>Kampala, Uganda</div>
+              <div>0786106501 / 0755388929</div>
+              <div class="break-all">info@talentsearchinitiative.click</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  
-  <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5 text-xl sm:text-2xl font-light fixed inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-sm lg:text-base md:items-center md:flex md:justify-center md:gap-6 lg:gap-8 md:bg-white">
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="index.html">Home</a>
-    </li>
-    <li onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 cursor-pointer"></li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="about.html">About</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="founder.html">Founder</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="directors.html">Directors</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="ambassadors.html">Ambassadors</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="programs.html">Programs</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="membership.html">Membership</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="gallery.html">Gallery</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="events.html">Events</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="contact.html">Contact</a>
-    </li>
-  </ul>
-</header>
 
-<header class="page-header h-36 sm:h-44 md:h-52 flex justify-center items-center flex-col relative w-full">
-  <!-- Video Background with blue-900 fallback -->
-  <video class="video-bg" autoplay muted loop playsinline>
-    <source src="capture.mp4" type="video/mp4">
-  </video>
-  
-  <div class="content-overlay text-center px-4">
-    <h1 class="text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Contact Us</h1>
-    <p class="text-white text-sm sm:text-base md:text-lg mt-2">We'd love to hear from you!</p>
-  </div>
-</header>
-
-<main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8 sm:py-12">
-  <h2 class="font-bold text-xl sm:text-2xl md:text-3xl text-center mb-6 sm:mb-8 text-gray-900">Get in Touch</h2>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
-    <div class="p-4 sm:p-6 flex gap-3 sm:gap-4 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-      <span class="bg-blue-100 text-blue-600 grid place-items-center ri-phone-line rounded-full aspect-square w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 text-xl sm:text-2xl"></span>
-      <div>
-        <h3 class="text-base sm:text-lg font-bold text-gray-900">Phone</h3>
-        <p class="text-sm sm:text-base text-gray-700 mt-1">
-          0786106501<br>
-          0755388929<br>
-          0701436179
-        </p>
+      <div class="mt-10 pt-7 border-t thin-line flex flex-col sm:flex-row gap-3 justify-between text-xs text-gray-400">
+        <div>© 2026 Talent Search Initiative. All rights reserved.</div>
+        <a href="" class="hover:text-cyan-600 transition">Developed and Maintained by Amanda Technologies Uganda</a>
       </div>
     </div>
-    
-    <div class="p-4 sm:p-6 flex gap-3 sm:gap-4 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-      <span class="bg-blue-100 text-blue-600 grid place-items-center ri-mail-line rounded-full aspect-square w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 text-xl sm:text-2xl"></span>
-      <div>
-        <h3 class="text-base sm:text-lg font-bold text-gray-900">Email</h3>
-        <p class="text-sm sm:text-base text-gray-700 mt-1 break-all">
-          info@talentsearchinitiative.click
-        </p>
-      </div>
-    </div>
-    
-    <div class="p-4 sm:p-6 flex gap-3 sm:gap-4 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-      <span class="bg-blue-100 text-blue-600 grid place-items-center ri-map-pin-line rounded-full aspect-square w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 text-xl sm:text-2xl"></span>
-      <div>
-        <h3 class="text-base sm:text-lg font-bold text-gray-900">Location</h3>
-        <p class="text-sm sm:text-base text-gray-700 mt-1">
-          Kampala, Uganda
-        </p>
-      </div>
-    </div>
-    
-    <div class="p-4 sm:p-6 flex gap-3 sm:gap-4 bg-white rounded-lg shadow-md hover:shadow-lg transition">
-      <span class="bg-blue-100 text-blue-600 grid place-items-center ri-time-line rounded-full aspect-square w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 text-xl sm:text-2xl"></span>
-      <div>
-        <h3 class="text-base sm:text-lg font-bold text-gray-900">Office Hours</h3>
-        <p class="text-sm sm:text-base text-gray-700 mt-1">
-          Monday - Friday: 09:00AM - 05:00PM<br>
-          Saturday: 10:00AM - 02:00PM
-        </p>
-      </div>
-    </div>
-  </div>
+  </footer>
 
-  <div class="max-w-3xl mx-auto">
-    <h3 class="font-bold text-lg sm:text-xl md:text-2xl text-center mb-4 sm:mb-6 text-gray-900">Send Us a Message</h3>
-    
-    <form action="https://formsubmit.co/info@talentsearchinitiative.click" method="POST" class="grid grid-cols-1 gap-4 sm:gap-6 rounded-lg border border-gray-300 bg-gray-50 p-6 sm:p-8 shadow-lg sm:grid-cols-2">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://talentsearchinitiative.click/thanks.html">
-      <div class="sm:col-span-2">
-        <label class="block text-sm sm:text-base font-medium text-gray-900 mb-2" for="name">Full Name</label>
-        <input 
-          class="w-full rounded-lg border border-gray-300 bg-white p-3 text-sm sm:text-base focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" 
-          id="name" 
-          type="text" 
-          placeholder="Enter your full name"
-          required
-          name="Name"
-        >
-      </div>
-
-      <div>
-        <label class="block text-sm sm:text-base font-medium text-gray-900 mb-2" for="email">Email Address</label>
-        <input 
-          class="w-full rounded-lg border border-gray-300 bg-white p-3 text-sm sm:text-base focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" 
-          id="email" 
-          type="email" 
-          placeholder="your.email@example.com"
-          required
-          name="Email"
-        >
-      </div>
-
-      <div>
-        <label class="block text-sm sm:text-base font-medium text-gray-900 mb-2" for="phone">Phone Number</label>
-        <input 
-          class="w-full rounded-lg border border-gray-300 bg-white p-3 text-sm sm:text-base focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" 
-          id="phone" 
-          type="tel" 
-          placeholder="0700000000"
-          required
-          name="Phone"
-        >
-      </div>
-
-      <div class="sm:col-span-2">
-        <label class="block text-sm sm:text-base font-medium text-gray-900 mb-2" for="message">Your Message</label>
-        <textarea 
-          class="w-full resize-none rounded-lg border border-gray-300 bg-white p-3 text-sm sm:text-base focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 focus:outline-none transition" 
-          id="message" 
-          rows="5" 
-          placeholder="Tell us how we can help you..."
-          required
-          name="Message"
-        ></textarea>
-      </div>
-
-      <div class="sm:col-span-2">
-        <button 
-          class="w-full rounded-lg bg-indigo-600 px-6 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-md transition-all hover:bg-indigo-700 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-indigo-300 active:scale-95" 
-          type="submit"
-        >
-          <span class="flex items-center justify-center gap-2">
-            <span class="ri-send-plane-fill"></span>
-            Send Message
-          </span>
-        </button>
-      </div>
-    </form>
-  </div>
-</main>
-
-<footer class="bg-gray-900">
-  <div class="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:py-16 sm:px-6 lg:space-y-16 lg:px-8">
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <div>
-        <div class="text-blue-400 items-center flex gap-2 dark:text-blue-300">
-          <img src="logo.png" class="w-12 sm:w-16" alt="TSI Logo">
-          <b class="text-lg sm:text-xl">Talent Search Initiative</b>
-        </div>
-
-        <p class="mt-4 max-w-xs text-sm sm:text-base text-gray-300">
-          Discovering, nurturing, and showcasing exceptional talents across various sectors for personal and national development.
-        </p>
-
-        <ul class="mt-6 sm:mt-8 flex text-xl sm:text-2xl gap-4 sm:gap-6">
-          <li>
-            <a href="https://www.instagram.com/talentsearchinitiativeuganda?igsh=MTZ4dmNpczZhNWE2YQ==" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="Instagram">
-              <span class="ri-instagram-fill"></span>
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com/@talentsearchinitiative?si=q5AKKMXVoizNZVcM" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="YouTube">
-              <span class="ri-youtube-fill"></span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.tiktok.com/@talent.search.ini?_r=1&_t=ZM-92RBLdBAzFs" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="TikTok">
-              <span class="ri-tiktok-fill"></span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-2">
-        <div>
-          <p class="font-medium text-base sm:text-lg text-white">Quick Links</p>
-
-          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
-            <li>
-              <a href="about.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">About Us</a>
-            </li>
-            <li>
-              <a href="programs.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Our Programs</a>
-            </li>
-            <li>
-              <a href="events.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Events</a>
-            </li>
-            <li>
-              <a href="membership.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Membership</a>
-            </li>
-            <li>
-              <a href="contact.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="font-medium text-base sm:text-lg text-white">Contact Us</p>
-
-          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
-            <li class="flex items-start gap-2 text-gray-200">
-              <span class="text-lg sm:text-xl ri-map-pin-line flex-shrink-0 mt-0.5"></span>
-              <span>Kampala, Uganda</span>
-            </li>
-            <li class="flex items-start gap-2 text-gray-200">
-              <span class="text-lg sm:text-xl ri-phone-line flex-shrink-0 mt-0.5"></span>
-              <span>0786106501 / 0755388929</span>
-            </li>
-            <li class="flex items-start gap-2 text-gray-200">
-              <span class="text-lg sm:text-xl ri-mail-line flex-shrink-0 mt-0.5"></span>
-              <span class="break-all">info@talentsearchinitiative.click</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
-      © 2026. Talent Search Initiative. All rights reserved.
-    </p>
-    <p class="text-center text-sm text-white underline"><a href="">Developed and Maintained by Amanda Technologies Uganda</a></p>
-  </div>
-</footer>
-
-<script>
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const nav = document.getElementById('nav');
-    const menuButton = document.querySelector('[onclick*="nav"]');
-    if (!nav.contains(e.target) && !menuButton?.contains(e.target) && nav.style.left === '0vw') {
-      nav.style.left = '100vw';
+  <script>
+    function toggleMenu(open){
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('translate-x-full', !open);
+      document.body.classList.toggle('overflow-hidden', open);
     }
-  });
-</script>
+  </script>
 </body>
 </html>
