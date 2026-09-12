@@ -5,457 +5,686 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/remixicon.css">
   <script src="js/tw.js"></script>
-  <title>TSI - Our Programs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Our Programs | Talent Search Initiative Uganda</title>
+  
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="TSI" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Our Programs | Talent Search Initiative Uganda">
+  <meta name="description" content="Explore TSI Uganda's youth initiatives including Next Gen Talent, Teenz on Fire, PERFORMYX Dancers, artistic, communication, and physical talent development programs.">
+  <meta name="keywords" content="TSI Programs, Next Gen Talent Initiative, Teenz on Fire, PERFORMYX Dancers, Youth Talent Uganda, Sports Art Music Mentorship">
+  <meta name="author" content="Talent Search Initiative Uganda">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://talentsearchinitiative.click/programs.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://talentsearchinitiative.click/programs.html">
+  <meta property="og:title" content="Our Programs | Talent Search Initiative Uganda">
+  <meta property="og:description" content="Discovering, nurturing and showcasing exceptional talent across Uganda.">
+  <meta property="og:image" content="https://talentsearchinitiative.click/logo.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#11d8e6">
+
   <style>
-    /* Video background styles */
-    .video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
+    :root{
+      --cyan:#11d8e6;
+      --cyan-dark:#0bb8c5;
+      --ink:#0a0a0a;
+      --muted:#727272;
+      --line:#e7e7e7;
     }
-    
-    /* Mobile menu improvements */
-    #nav {
-      transition: left 0.3s ease-in-out;
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#fff;
+      font-family:"DM Sans",sans-serif;
     }
-    
-    /* Ensure content is above video */
-    .content-overlay {
-      position: relative;
-      z-index: 1;
+
+    .display{font-family:"Manrope",sans-serif}
+    .thin-line{border-color:var(--line)}
+
+    /* Site Navigation */
+    .site-nav{
+      position:fixed;
+      top:14px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(1200px,calc(100% - 28px));
+      z-index:80;
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      backdrop-filter:blur(18px);
+      border-radius:999px;
     }
-    
-    /* Page header with video background and blue-900 fallback */
-    .page-header {
-      background-color: #1e3a8a;
-      position: relative;
-      overflow: hidden;
+
+    .nav-link{
+      position:relative;
+      transition:.25s ease;
     }
-    
-    /* Program card hover effect */
-    .program-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .nav-link:hover{color:var(--cyan-dark)}
+    .nav-link:after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-7px;
+      height:2px;
+      background:var(--cyan);
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:.25s ease;
     }
-    
-    .program-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    .nav-link:hover:after,
+    .nav-link.active:after{transform:scaleX(1)}
+
+    /* Buttons */
+    .btn-main,.btn-ghost{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:13px 19px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:13px;
+      transition:.25s ease;
+    }
+    .btn-main{
+      background:var(--cyan);
+      color:#061012;
+      box-shadow:0 12px 35px rgba(17,216,230,.24);
+    }
+    .btn-main:hover{background:#fff;color:#000;transform:translateY(-2px)}
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,.3);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      backdrop-filter:blur(10px);
+    }
+    .btn-ghost:hover{background:#fff;color:#000}
+
+    /* Hero Section */
+    .hero-programs{
+      position:relative;
+      min-height:55vh;
+      display:flex;
+      align-items:flex-end;
+      padding:160px 0 60px;
+      background:#0d0d0d;
+      overflow:hidden;
+    }
+    .video-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0.25;
+      pointer-events:none;
+    }
+    .hero-programs:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(0deg, #0d0d0d 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.8) 100%);
+      z-index:1;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.24);
+      background:rgba(0,0,0,.18);
+      color:#fff;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      backdrop-filter:blur(10px);
+    }
+    .eyebrow .dot{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 16px var(--cyan);
+    }
+
+    /* Typography */
+    .kicker{
+      color:var(--cyan-dark);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-weight:800;
+    }
+    .section-title{
+      margin:12px 0 0;
+      font-family:"Manrope",sans-serif;
+      font-size:clamp(2.4rem,5vw,4.5rem);
+      line-height:.98;
+      letter-spacing:-.05em;
+      font-weight:800;
+    }
+    .section-title span{color:#bcbcbc;font-weight:500}
+
+    /* Sections */
+    .section{padding:100px 0}
+    .section-dark{background:#090909;color:#fff}
+
+    /* Cards */
+    .program-card{
+      background:#ffffff;
+      border:1px solid #e7e7e7;
+      padding:28px 20px;
+      border-radius:12px;
+      text-align:center;
+      transition:all .3s ease;
+    }
+    .program-card:hover{
+      transform:translateY(-4px);
+      border-color:var(--cyan);
+      box-shadow:0 15px 35px rgba(0,0,0,.07);
+    }
+
+    .process-grid{
+      margin-top:50px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid #222;
+      border-bottom:1px solid #222;
+    }
+    .process{
+      padding:34px 28px 38px;
+      border-right:1px solid #222;
+    }
+    .process:last-child{border-right:0}
+    .process-number{
+      color:var(--cyan);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.2em;
+    }
+    .process h3{
+      margin:20px 0 10px;
+      font-family:"Manrope",sans-serif;
+      font-size:20px;
+      letter-spacing:-.03em;
+    }
+    .process p{color:#888;line-height:1.7;font-size:14px}
+
+    /* CTA */
+    .cta{
+      background:#0b0b0b;
+      color:#fff;
+      padding:84px 0;
+    }
+    .cta-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+    .cta h2{
+      max-width:720px;
+      font-family:"Manrope",sans-serif;
+      letter-spacing:-.05em;
+      line-height:1;
+      font-weight:800;
+      font-size:clamp(2.6rem,5vw,5.2rem);
+      margin:0;
+    }
+    .cta h2 span{color:var(--cyan)}
+
+    footer{
+      background:#fff;
+      border-top:1px solid var(--line);
+    }
+
+    @media (max-width:900px){
+      .process-grid{grid-template-columns:1fr}
+      .process{border-right:0;border-bottom:1px solid #222}
+      .process:last-child{border-bottom:0}
+      .cta-inner{align-items:flex-start;flex-direction:column}
+    }
+
+    @media (max-width:767px){
+      .site-nav{width:calc(100% - 18px);top:9px}
+      .hero-programs{padding:130px 0 40px;min-height:auto}
+      .section{padding:72px 0}
+      .process{padding:28px 20px}
     }
   </style>
 </head>
+
 <body>
-<header class="bg-white sticky top-0 z-50 shadow-sm">
-  <div class="mx-auto bg-white relative max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex h-16 items-center justify-between">
-      <div class="flex-1 md:flex md:items-center md:justify-center lg:justify-start">
-        <a class="flex items-center gap-2 text-blue-600" href="index.html">
-          <span class="sr-only">Home</span>
-          <img src="logo.png" class="w-10 sm:w-11" alt="TSI Logo">
-          <span class="font-extrabold text-2xl sm:text-3xl md:hidden">TSI</span>
-          <span class="font-extrabold hidden md:inline text-lg lg:text-xl">Talent Search Initiative</span>
-        </a>
+
+  <!-- Navigation -->
+  <header class="site-nav">
+    <div class="flex items-center justify-between px-4 sm:px-6 h-[64px]">
+      <a href="index.html" class="flex items-center gap-2.5 min-w-0">
+        <img src="logo.png" class="w-9 h-9 object-contain" alt="TSI Logo">
+        <div class="min-w-0">
+          <div class="display font-extrabold text-[15px] sm:text-base tracking-[-0.03em] truncate">Talent Search Initiative</div>
+          <div class="text-[8px] uppercase tracking-[.34em] text-gray-400">Uganda</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 lg:gap-9 text-[12px] font-semibold">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link active" href="programs.html">Programs</a>
+        <a class="nav-link" href="membership.html">Membership</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+
+      <a href="membership.html" class="hidden sm:inline-flex btn-main !py-2.5 !px-4 text-[11px]">
+        Join TSI <i class="ri-arrow-right-up-line"></i>
+      </a>
+
+      <button
+        class="md:hidden w-10 h-10 grid place-items-center rounded-full bg-black text-white"
+        aria-label="Open menu"
+        onclick="toggleMenu(true)"
+      >
+        <i class="ri-menu-4-line text-lg"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[90] bg-white translate-x-full transition-transform duration-300 md:hidden">
+    <div class="h-full p-6 flex flex-col">
+      <div class="flex items-center justify-between">
+        <div class="display font-extrabold text-lg">TSI Uganda</div>
+        <button class="w-10 h-10 rounded-full bg-black text-white grid place-items-center" onclick="toggleMenu(false)" aria-label="Close menu">
+          <i class="ri-close-line text-lg"></i>
+        </button>
       </div>
 
-      <div class="md:flex md:items-center md:gap-12">
-        <div class="flex items-center gap-4">
-          <div class="block md:hidden">
-            <button onclick="document.getElementById('nav').style.left = '0vw'" class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75" aria-label="Open menu">
-              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
+      <nav class="mt-16 grid gap-8">
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="index.html">Home</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="about.html">About</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight text-cyan-600" href="programs.html">Programs</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="membership.html">Membership</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="mt-auto border-t pt-6 text-sm text-gray-500">
+        Discovering, nurturing and showcasing exceptional talent across Uganda.
       </div>
     </div>
   </div>
-  
-  <ul id="nav" class="grid grid-cols-2 items-center gap-1 h-screen bg-blue-500 px-5 py-1.5 text-xl sm:text-2xl font-light fixed inset-0 z-40 left-full pb-24 md:left-0 md:h-auto md:pb-1.5 md:relative md:text-sm lg:text-base md:items-center md:flex md:justify-center md:gap-6 lg:gap-8 md:bg-white">
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="index.html">Home</a>
-    </li>
-    <li onclick="this.parentElement.style.left = '100vw'" class="ri-close-line text-4xl bg-white w-10 flex justify-center items-center place-self-end aspect-square transform -translate-y-1/2 rounded-lg md:hidden text-blue-600 cursor-pointer"></li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="about.html">About</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="founder.html">Founder</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="directors.html">Directors</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="ambassadors.html">Ambassadors</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="programs.html">Programs</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="membership.html">Membership</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="gallery.html">Gallery</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="events.html">Events</a>
-    </li>
-    <li>
-      <a class="text-white md:text-gray-700 hover:underline hover:text-blue-600 transition" href="contact.html">Contact</a>
-    </li>
-  </ul>
-</header>
 
-<header class="page-header h-36 sm:h-44 md:h-52 flex justify-center items-center flex-col relative w-full">
-  <!-- Video Background with blue-900 fallback -->
-  <video class="video-bg" autoplay muted loop playsinline>
-    <source src="capture.mp4" type="video/mp4">
-  </video>
-  
-  <div class="content-overlay text-center px-4">
-    <h1 class="text-cyan-400 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Our Programs</h1>
-    <p class="text-white text-sm sm:text-base md:text-lg mt-2">Comprehensive initiatives designed to discover, nurture, and showcase talent</p>
-  </div>
-</header>
+  <!-- Hero Header -->
+  <section class="hero-programs">
+    <video class="video-bg" autoplay muted loop playsinline>
+      <source src="capture.mp4" type="video/mp4">
+    </video>
 
-<main class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8 sm:py-12">
-  
-  <!-- Flagship Program -->
-  <section class="mb-4 sm:mb-7">
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-6 sm:p-8 lg:p-10 text-white shadow-xl">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Next Gen Talent Initiative</h2>
-        <p class="text-base sm:text-lg leading-relaxed mb-6">
-          Our flagship program dedicated to identifying exceptional young talent in schools and communities. Through the Annual Talent Discovery Challenge, we provide a platform for the next generation of leaders to shine.
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-3xl">
+        <div class="eyebrow"><span class="dot"></span> Our Initiatives & Pathways</div>
+        <h1 class="display text-white font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight mt-6 leading-[1.02]">
+          Our Programs.<br>
+          <span class="text-[#11d8e6]">Unlocking Potential.</span>
+        </h1>
+        <p class="mt-6 text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+          Comprehensive initiatives designed to discover, nurture, and showcase talent across arts, performance, leadership, and athletics throughout Uganda.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8">
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-            <i class="ri-user-star-line text-3xl sm:text-4xl mb-2"></i>
-            <h3 class="font-bold text-base sm:text-lg">Mentorship</h3>
-          </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-            <i class="ri-award-line text-3xl sm:text-4xl mb-2"></i>
-            <h3 class="font-bold text-base sm:text-lg">Recognition</h3>
-          </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-            <i class="ri-eye-line text-3xl sm:text-4xl mb-2"></i>
-            <h3 class="font-bold text-base sm:text-lg">Exposure</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flagship Program -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-gray-900 to-black rounded-3xl p-8 sm:p-12 text-white border border-gray-800 shadow-2xl">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="kicker !text-[#11d8e6]">Flagship Initiative</div>
+          <h2 class="display text-3xl sm:text-5xl font-extrabold mt-3 mb-6">Next Gen Talent Initiative</h2>
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
+            Our flagship program dedicated to identifying exceptional young talent in schools and communities. Through the Annual Talent Discovery Challenge, we provide a structured platform for the next generation of leaders to shine.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
+              <i class="ri-user-star-line text-4xl text-[#11d8e6] mb-3 block"></i>
+              <h3 class="font-bold text-lg text-white">Mentorship</h3>
+              <p class="text-xs text-gray-400 mt-2">Guidance from industry leaders and experts</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
+              <i class="ri-award-line text-4xl text-[#11d8e6] mb-3 block"></i>
+              <h3 class="font-bold text-lg text-white">Recognition</h3>
+              <p class="text-xs text-gray-400 mt-2">Platforms for national merit and awards</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur">
+              <i class="ri-eye-line text-4xl text-[#11d8e6] mb-3 block"></i>
+              <h3 class="font-bold text-lg text-white">Exposure</h3>
+              <p class="text-xs text-gray-400 mt-2">Direct connections to career opportunities</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="h-screen bg-black text-white relative rounded-lg overflow-hidden">
-  <!-- Background Image Overlay -->
-  <div class="absolute inset-0">
-    <img
-      src="gallery/tofm.jpg"
-      alt="Teens performing on stage"
-      class="w-full h-full object-cover opacity-40"
-    />
-    <div class="absolute inset-0 bg-black/30"></div>
-  </div>
 
-  <!-- Content -->
-  <div class="relative z-10 flex flex-col lg:flex-row items-center justify-center h-full px-6 lg:px-20 gap-10">
-    
-    <!-- Text Content -->
-    <div class="max-w-xl text-center lg:text-left">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">
-        Teenz on Fire 🔥
-      </h2>
-      <p class="text-lg md:text-xl text-gray-200 mb-6">
-        Igniting talent, confidence, and leadership in teenagers through
-        creative expression, mentorship, and opportunity.
-      </p>
+  <!-- Teenz on Fire -->
+  <section class="section section-dark relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="kicker">Youth Empowerment</div>
+          <h2 class="section-title text-white">
+            Teenz on Fire 🔥<br>
+            <span>Igniting Greatness.</span>
+          </h2>
+          <p class="mt-6 text-gray-300 text-base leading-relaxed">
+            Igniting talent, confidence, and leadership in teenagers through creative expression, mentorship, and real-world performance platforms.
+          </p>
 
-      <ul class="space-y-3 text-gray-300 mb-8">
-        <li>🎤 Music, Dance & Performance</li>
-        <li>🎭 Acting, Public Speaking & Poetry</li>
-        <li>💡 Leadership & Creative Skills</li>
-      </ul>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-        <a
-          href="tel: 256786106501"
-          class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-black font-semibold rounded-lg transition"
-        >
-          Join the Program
-        </a>
-      
-      </div>
-    </div>
-
-    <!-- Image Stack -->
-    <div class="flex gap-4">
-      <img
-        src="gallery/tf.jpg"
-        alt="Teen talent showcase"
-        class="w-32 h-44 md:w-40 md:h-56 object-cover rounded-xl shadow-lg"
-      />
-      <img
-        src="gallery/tfl.jpg"
-        alt="Teen performing"
-        class="w-32 h-44 md:w-40 md:h-56 object-cover rounded-xl shadow-lg mt-8"
-      />
-    </div>
-  </div>
-</section>
-<section class="my-4 sm:my-7">
-    <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl p-6 sm:p-8 lg:p-10 text-white shadow-xl">
-      <div class="max-w-4xl mx-auto text-center">
-        
-        <marquee class="*:inline *:mx-2">
-          <img src="px.jpg" alt="PERFORMYX" class="w-32 h-44 md:w-40 md:h-56 object-cover rounded-xl shadow-lg mt-8"/>
-          <img src="px2.jpg" alt="PERFORMYX" class="w-32 h-44 md:w-40 md:h-56 object-cover rounded-xl shadow-lg mt-8"/>
-          <img src="px3.jpg" alt="PERFORMYX" class="w-32 h-44 md:w-40 md:h-56 object-cover rounded-xl shadow-lg mt-8"/>
-          <img src="px4.jpg" alt="PERFORMYX" class="w-32 h-44 md:w-40 md:h-56 object-cover rounded-xl shadow-lg mt-8"/>
-        </marquee>
-        
-        
-        
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">PERFORMYX Dancers</h2>
-        <p class="text-base sm:text-lg leading-relaxed mb-6">
-          A flagship dance and performance development program under the Talent Search Initiative that identifies, nurtures, and empowers young people aged 10-25 with exceptional dance talent. We transform movement into purpose through professional training, mentorship, and performance platforms, serving as a creative pathway for youth expression, discipline, leadership, and professional performance while preserving and innovating African and contemporary dance forms.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-8">
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-            <i class="ri-search-line text-3xl sm:text-4xl mb-2"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-2">Talent Identification</h3>
-            <p class="text-sm opacity-90">School searches and community outreach</p>
+          <div class="mt-8 space-y-4 text-gray-300 text-sm font-medium">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-cyan-950 text-cyan-400 flex items-center justify-center font-bold">✓</div>
+              <span>Music, Dance & Live Performance</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-cyan-950 text-cyan-400 flex items-center justify-center font-bold">✓</div>
+              <span>Acting, Public Speaking & Spoken Word Poetry</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-cyan-950 text-cyan-400 flex items-center justify-center font-bold">✓</div>
+              <span>Leadership, Creative Strategy & Confidence Building</span>
+            </div>
           </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-            <i class="ri-graduation-cap-line text-3xl sm:text-4xl mb-2"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-2">Talent Development</h3>
-            <p class="text-sm opacity-90">Professional training and choreography</p>
-          </div>
-          <div class="bg-white/10 backdrop-blur rounded-lg p-4">
-            <i class="ri-trophy-line text-3xl sm:text-4xl mb-2"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-2">Talent Promotion</h3>
-            <p class="text-sm opacity-90">Performances and competitions</p>
+
+          <div class="mt-10">
+            <a href="tel:256786106501" class="btn-main !px-7 !py-3.5">
+              Join the Program <i class="ri-phone-line"></i>
+            </a>
           </div>
         </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <img src="gallery/tofm.jpg" alt="Teens stage performance" class="w-full h-80 object-cover rounded-2xl border border-gray-800 shadow-xl col-span-2">
+          <img src="gallery/tf.jpg" alt="Teen talent showcase" class="w-full h-48 object-cover rounded-2xl border border-gray-800 shadow-xl">
+          <img src="gallery/tfl.jpg" alt="Teen performing live" class="w-full h-48 object-cover rounded-2xl border border-gray-800 shadow-xl">
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- PERFORMYX Dancers -->
+  <section class="section bg-[#f8f8f8]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <div class="kicker">Creative Pathways</div>
+        <h2 class="section-title">
+          PERFORMYX Dancers<br>
+          <span>Movement into purpose.</span>
+        </h2>
+        <p class="mt-6 text-gray-600 text-base leading-relaxed">
+          A flagship dance and performance development program under TSI that identifies, nurtures, and empowers young people aged 10–25 with exceptional dance talent. We transform movement into purpose through professional choreography, mentorship, and competitive performance platforms.
+        </p>
+      </div>
+
+      <!-- Marquee Showcase -->
+      <div class="overflow-hidden rounded-2xl bg-black p-4 mb-12">
+        <marquee class="flex items-center gap-4">
+          <img src="px.jpg" alt="PERFORMYX Showcase 1" class="h-56 w-44 object-cover rounded-xl inline-block mx-2">
+          <img src="px2.jpg" alt="PERFORMYX Showcase 2" class="h-56 w-44 object-cover rounded-xl inline-block mx-2">
+          <img src="px3.jpg" alt="PERFORMYX Showcase 3" class="h-56 w-44 object-cover rounded-xl inline-block mx-2">
+          <img src="px4.jpg" alt="PERFORMYX Showcase 4" class="h-56 w-44 object-cover rounded-xl inline-block mx-2">
+        </marquee>
+      </div>
+
+      <div class="process-grid border-black/10">
+        <div class="process border-black/10">
+          <div class="process-number">01 / DISCOVERY</div>
+          <h3>Talent Identification</h3>
+          <p>Active school searches, community outreach, and regional auditions to discover raw dancing talent.</p>
+        </div>
+
+        <div class="process border-black/10">
+          <div class="process-number">02 / TRAINING</div>
+          <h3>Talent Development</h3>
+          <p>Professional training, dance workshops, modern choreography, and discipline-building sessions.</p>
+        </div>
+
+        <div class="process border-black/10">
+          <div class="process-number">03 / EXPOSURE</div>
+          <h3>Talent Promotion</h3>
+          <p>Stage performances, national competitions, video productions, and event bookings.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- Artistic & Creative Talents -->
-  <section class="mb-12 sm:mb-16">
-    <div class="text-center mb-6 sm:mb-8">
-      <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-900">Artistic & Creative Talents</h2>
-      <p class="text-gray-600 text-sm sm:text-base mt-2">Unleash your creative potential</p>
-    </div>
-    
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-palette-line text-3xl sm:text-4xl text-blue-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Painting & Drawing</h3>
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="kicker">Discipline Focus</div>
+        <h2 class="display text-3xl sm:text-5xl font-extrabold mt-2">Artistic & Creative Talents</h2>
+        <p class="text-gray-500 text-sm sm:text-base mt-4">Unleashing original thinking and expressive artistry</p>
       </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-music-line text-3xl sm:text-4xl text-blue-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Music & Composition</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-footprint-line text-3xl sm:text-4xl text-blue-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Dance & Choreography</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-film-line text-3xl sm:text-4xl text-blue-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Acting & Drama</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-shirt-line text-3xl sm:text-4xl text-blue-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Modeling & Fashion</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-tools-line text-3xl sm:text-4xl text-blue-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Craftwork & Design</h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div class="program-card">
+          <i class="ri-palette-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Painting & Drawing</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-music-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Music & Composition</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-footprint-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Dance & Choreography</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-film-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Acting & Drama</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-shirt-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Modeling & Fashion</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-tools-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Craftwork & Design</h3>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Communication & Social Talents -->
-  <section class="mb-12 sm:mb-16">
-    <div class="text-center mb-6 sm:mb-8">
-      <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-900">Communication & Social Talents</h2>
-      <p class="text-gray-600 text-sm sm:text-base mt-2">Master the art of expression and influence</p>
-    </div>
-    
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-mic-line text-3xl sm:text-4xl text-indigo-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Public Speaking</h3>
+  <section class="section bg-[#fafafa]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="kicker">Influence & Voice</div>
+        <h2 class="display text-3xl sm:text-5xl font-extrabold mt-2">Communication & Social</h2>
+        <p class="text-gray-500 text-sm sm:text-base mt-4">Mastering the art of vocal expression, debate, and leadership</p>
       </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-discuss-line text-3xl sm:text-4xl text-indigo-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Debate</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-book-open-line text-3xl sm:text-4xl text-indigo-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Storytelling</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-quill-pen-line text-3xl sm:text-4xl text-indigo-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Writing & Poetry</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-team-line text-3xl sm:text-4xl text-indigo-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Leadership</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-smartphone-line text-3xl sm:text-4xl text-indigo-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Social Media Influencing</h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div class="program-card">
+          <i class="ri-mic-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Public Speaking</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-discuss-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Debate</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-book-open-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Storytelling</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-quill-pen-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Writing & Poetry</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-team-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Leadership</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-smartphone-line text-4xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-sm text-gray-900">Social Media</h3>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Physical Talents -->
-  <section class="mb-12 sm:mb-16">
-    <div class="text-center mb-6 sm:mb-8">
-      <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-gray-900">Physical Talents</h2>
-      <p class="text-gray-600 text-sm sm:text-base mt-2">Excel in sports and athletics</p>
-    </div>
-    
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 sm:gap-6">
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-football-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Soccer</h3>
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="kicker">Athletic Pathways</div>
+        <h2 class="display text-3xl sm:text-5xl font-extrabold mt-2">Physical & Sports</h2>
+        <p class="text-gray-500 text-sm sm:text-base mt-4">Excelling in team sports, fitness, and athletic competitions</p>
       </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-basketball-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Basketball</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-ball-pen-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Netball</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-fire-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Volleyball</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-contrast-drop-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Swimming</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-run-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Rugby</h3>
-      </div>
-      <div class="program-card bg-white border border-gray-200 rounded-lg p-4 sm:p-5 text-center shadow-md">
-        <i class="ri-ping-pong-line text-3xl sm:text-4xl text-green-500 mb-3"></i>
-        <h3 class="font-semibold text-sm sm:text-base text-gray-900">Table Tennis</h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
+        <div class="program-card">
+          <i class="ri-football-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Soccer</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-basketball-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Basketball</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-[#0bb8c5] ri-trophy-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Netball</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-fire-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Volleyball</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-drop-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Swimming</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-run-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Rugby</h3>
+        </div>
+        <div class="program-card">
+          <i class="ri-ping-pong-line text-3xl text-[#0bb8c5] mb-3 block"></i>
+          <h3 class="font-bold text-xs text-gray-900">Table Tennis</h3>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Call to Action -->
-  <section class="bg-blue-50 rounded-xl p-6 sm:p-8 lg:p-10 text-center">
-    <h2 class="font-bold text-2xl sm:text-3xl text-gray-900 mb-4">Ready to Join Our Programs?</h2>
-    <p class="text-gray-700 text-sm sm:text-base mb-6 max-w-2xl mx-auto">
-      Whether you're an aspiring artist, communicator, or athlete, we have a program tailored for you. Join TSI today and unlock your full potential!
-    </p>
-    <a href="membership.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all text-sm sm:text-base">
-      Become a Member
-    </a>
-  </section>
+  <section class="cta">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="cta-inner">
+        <h2>
+          Ready to join<br>
+          <span>our programs?</span>
+        </h2>
 
-</main>
-
-<footer class="bg-gray-900">
-  <div class="mx-auto max-w-7xl space-y-8 px-4 py-12 sm:py-16 sm:px-6 lg:space-y-16 lg:px-8">
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <div>
-        <div class="text-blue-400 items-center flex gap-2 dark:text-blue-300">
-          <img src="logo.png" class="w-12 sm:w-16" alt="TSI Logo">
-          <b class="text-lg sm:text-xl">Talent Search Initiative</b>
-        </div>
-
-        <p class="mt-4 max-w-xs text-sm sm:text-base text-gray-300">
-          Discovering, nurturing, and showcasing exceptional talents across various sectors for personal and national development.
-        </p>
-
-        <ul class="mt-6 sm:mt-8 flex text-xl sm:text-2xl gap-4 sm:gap-6">
-          <li>
-            <a href="https://www.instagram.com/talentsearchinitiativeuganda?igsh=MTZ4dmNpczZhNWE2YQ==" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="Instagram">
-              <span class="ri-instagram-fill"></span>
-            </a>
-          </li>
-          <li>
-            <a href="https://youtube.com/@talentsearchinitiative?si=q5AKKMXVoizNZVcM" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="YouTube">
-              <span class="ri-youtube-fill"></span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.tiktok.com/@talent.search.ini?_r=1&_t=ZM-92RBLdBAzFs" rel="noreferrer" target="_blank" class="transition hover:opacity-75 text-gray-200" aria-label="TikTok">
-              <span class="ri-tiktok-fill"></span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-2">
-        <div>
-          <p class="font-medium text-base sm:text-lg text-white">Quick Links</p>
-
-          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
-            <li>
-              <a href="about.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">About Us</a>
-            </li>
-            <li>
-              <a href="programs.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Our Programs</a>
-            </li>
-            <li>
-              <a href="events.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Events</a>
-            </li>
-            <li>
-              <a href="membership.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Membership</a>
-            </li>
-            <li>
-              <a href="contact.html" class="transition hover:opacity-75 hover:text-blue-400 text-gray-200">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <p class="font-medium text-base sm:text-lg text-white">Contact Us</p>
-
-          <ul class="mt-4 sm:mt-6 space-y-3 sm:space-y-4 text-sm sm:text-base">
-            <li class="flex items-start gap-2 text-gray-200">
-              <span class="text-lg sm:text-xl ri-map-pin-line flex-shrink-0 mt-0.5"></span>
-              <span>Kampala, Uganda</span>
-            </li>
-            <li class="flex items-start gap-2 text-gray-200">
-              <span class="text-lg sm:text-xl ri-phone-line flex-shrink-0 mt-0.5"></span>
-              <span>0786106501 / 0755388929</span>
-            </li>
-            <li class="flex items-start gap-2 text-gray-200">
-              <span class="text-lg sm:text-xl ri-mail-line flex-shrink-0 mt-0.5"></span>
-              <span class="break-all">info@talentsearchinitiative.click</span>
-            </li>
-          </ul>
-        </div>
+        <a href="membership.html" class="btn-main !px-7 !py-3.5 shrink-0">
+          Become a Member <i class="ri-arrow-right-up-line"></i>
+        </a>
       </div>
     </div>
+  </section>
 
-    <p class="text-xs sm:text-sm text-gray-400 text-center sm:text-left">
-      © 2026. Talent Search Initiative. All rights reserved.
-    </p>
-    <p class="text-center text-sm text-white underline"><a href="">Developed and Maintained by Amanda Technologies Uganda</a></p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid md:grid-cols-[1.2fr_.8fr] gap-10">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <img src="logo.png" class="w-11 h-11 object-contain" alt="TSI Logo">
+            <div>
+              <div class="display font-extrabold text-lg">Talent Search Initiative</div>
+              <div class="text-[8px] uppercase tracking-[.34em] text-gray-400">Uganda</div>
+            </div>
+          </div>
 
-<script>
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const nav = document.getElementById('nav');
-    const menuButton = document.querySelector('[onclick*="nav"]');
-    if (!nav.contains(e.target) && !menuButton?.contains(e.target) && nav.style.left === '0vw') {
-      nav.style.left = '100vw';
+          <p class="mt-5 max-w-md text-sm leading-7 text-gray-500">
+            Discovering, nurturing and showcasing exceptional talents across various sectors
+            for personal and national development.
+          </p>
+
+          <div class="mt-6 flex gap-3">
+            <a class="w-10 h-10 border rounded-full grid place-items-center hover:border-cyan-400 hover:text-cyan-600 transition"
+               href="https://www.instagram.com/talentsearchinitiativeuganda?igsh=MTZ4dmNpczZhNWE2YQ=="
+               target="_blank" rel="noreferrer" aria-label="Instagram">
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a class="w-10 h-10 border rounded-full grid place-items-center hover:border-cyan-400 hover:text-cyan-600 transition"
+               href="https://youtube.com/@talentsearchinitiative?si=q5AKKMXVoizNZVcM"
+               target="_blank" rel="noreferrer" aria-label="YouTube">
+              <i class="ri-youtube-line"></i>
+            </a>
+            <a class="w-10 h-10 border rounded-full grid place-items-center hover:border-cyan-400 hover:text-cyan-600 transition"
+               href="https://www.tiktok.com/@talent.search.ini?_r=1&_t=ZM-92RBLdBAzFs"
+               target="_blank" rel="noreferrer" aria-label="TikTok">
+              <i class="ri-tiktok-line"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 text-sm">
+          <div>
+            <div class="font-bold">Explore</div>
+            <div class="mt-4 grid gap-3 text-gray-500">
+              <a href="about.html" class="hover:text-cyan-600 transition">About Us</a>
+              <a href="programs.html" class="hover:text-cyan-600 transition">Programs</a>
+              <a href="membership.html" class="hover:text-cyan-600 transition">Membership</a>
+              <a href="contact.html" class="hover:text-cyan-600 transition">Contact Us</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="font-bold">Contact</div>
+            <div class="mt-4 grid gap-3 text-gray-500 leading-6">
+              <div>Kampala, Uganda</div>
+              <div>0786106501 / 0755388929</div>
+              <div class="break-all">info@talentsearchinitiative.click</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 pt-7 border-t thin-line flex flex-col sm:flex-row gap-3 justify-between text-xs text-gray-400">
+        <div>© 2026 Talent Search Initiative. All rights reserved.</div>
+        <a href="" class="hover:text-cyan-600 transition">Developed and Maintained by Amanda Technologies Uganda</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(open){
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('translate-x-full', !open);
+      document.body.classList.toggle('overflow-hidden', open);
     }
-  });
-</script>
+  </script>
 </body>
 </html>
