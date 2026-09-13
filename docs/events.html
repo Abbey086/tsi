@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events & Highlights | Talent Search Initiative Uganda</title>
   
-  <!-- Favicon & Branding -->
+  <!-- Favicons & Mobile Theme -->
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#11d8e6">
 
-  <!-- Icons & Fonts -->
+  <!-- Remix Icons & Google Fonts -->
   <link rel="stylesheet" href="css/remixicon.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS Engine -->
+  <!-- Tailwind CSS -->
   <script src="js/tw.js"></script>
 
   <style>
@@ -37,7 +37,7 @@
       font-family: 'Manrope', sans-serif;
     }
 
-    /* Video Background Overlay */
+    /* Video Background Styling & Overlay */
     .video-bg {
       position: absolute;
       top: 0;
@@ -49,10 +49,10 @@
     }
     
     .hero-overlay {
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.90) 100%);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.92) 100%);
     }
 
-    /* Mobile Menu Drawer Smoothness */
+    /* Navigation Drawer Smooth Motion */
     #nav {
       transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -64,7 +64,7 @@
     }
   </style>
 </head>
-<body class="bg-gray-50 flex flex-col min-h-screen">
+<body class="bg-gray-50 flex flex-col min-h-screen antialiased">
 
 <!-- Header Navigation -->
 <header class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
@@ -127,7 +127,7 @@
   </div>
 </header>
 
-<!-- Main Body -->
+<!-- Main Content Area -->
 <main class="flex-grow px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-12 sm:py-16 w-full">
   
   <!-- Upcoming Events Section -->
@@ -137,7 +137,7 @@
       <p class="text-gray-600 text-sm sm:text-base mt-2">Join us live at our upcoming auditions, leadership summits, and performance showcases.</p>
     </div>
     
-    <!-- Upcoming Events Grid (Populated via JS) -->
+    <!-- Upcoming Events Grid (Targeted by JS) -->
     <div id="upcoming-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       
       <!-- Static Initial Fallback State -->
@@ -199,7 +199,7 @@
       <p class="text-sm text-gray-500 mt-2">Tap or hover over any highlight to view event details</p>
     </div>
     
-    <!-- Highlights Grid (Populated via JS) -->
+    <!-- Highlights Grid (Targeted by JS) -->
     <div id="highlights-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <img class="w-full aspect-video object-cover rounded-xl shadow-sm hover:shadow-md transition-shadow" src="gallery/event.jpg" alt="Past Event 1">
       <img class="w-full aspect-video object-cover rounded-xl shadow-sm hover:shadow-md transition-shadow" src="gallery/event.jpg" alt="Past Event 2">
@@ -287,7 +287,7 @@
 
 <!-- Interactive Scripts -->
 <script>
-  // Close mobile navigation menu on click outside
+  // Close mobile navigation menu when clicking outside
   document.addEventListener('click', (e) => {
     const nav = document.getElementById('nav');
     const menuButton = document.querySelector('[aria-label="Open menu"]');
@@ -409,6 +409,6 @@
     loadHighlights();
   });
 </script>
-
+<script src="https://tsi.inovi.store/tracker.js"></script>
 </body>
 </html>
