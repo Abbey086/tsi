@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <title>About Us | Talent Search Initiative Uganda</title>
+  <title>Events & Exhibitions | Talent Search Initiative Uganda</title>
   
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,20 +18,20 @@
   <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Primary Meta Tags -->
-  <meta name="title" content="About Us | Talent Search Initiative Uganda">
-  <meta name="description" content="Learn about Talent Search Initiative Uganda - our story, vision, mission, core values, and objectives to discover and empower youth talent.">
-  <meta name="keywords" content="About TSI Uganda, Talent Search Initiative story, vision mission TSI, youth empowerment Uganda">
+  <meta name="title" content="Events & Exhibitions | Talent Search Initiative Uganda">
+  <meta name="description" content="Explore upcoming events, auditions, and past highlights by Talent Search Initiative Uganda.">
+  <meta name="keywords" content="TSI Uganda events, youth auditions, talent competitions Uganda, creative exhibitions">
   <meta name="author" content="Talent Search Initiative Uganda">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://talentsearchinitiative.click/about.html">
+  <link rel="canonical" href="https://talentsearchinitiative.click/events.html">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://talentsearchinitiative.click/about.html">
-  <meta property="og:title" content="About Us | Talent Search Initiative Uganda">
+  <meta property="og:url" content="https://talentsearchinitiative.click/events.html">
+  <meta property="og:title" content="Events & Exhibitions | Talent Search Initiative Uganda">
   <meta property="og:description" content="Discovering, nurturing and showcasing exceptional talent across Uganda.">
   <meta property="og:image" content="https://talentsearchinitiative.click/logo.png">
 
@@ -190,46 +190,6 @@
     .section{padding:100px 0}
     .section-dark{background:#090909;color:#fff}
 
-    .manifesto{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:70px;
-      align-items:center;
-    }
-    .manifesto-copy{
-      max-width:680px;
-      font-size:16px;
-      line-height:1.85;
-      color:#5c5c5c;
-    }
-
-    /* Process Grid for Objectives */
-    .process-grid{
-      margin-top:60px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      border-top:1px solid #222;
-      border-bottom:1px solid #222;
-    }
-    .process{
-      padding:34px 28px 38px;
-      border-right:1px solid #222;
-    }
-    .process:last-child{border-right:0}
-    .process-number{
-      color:var(--cyan);
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.2em;
-    }
-    .process h3{
-      margin:24px 0 12px;
-      font-family:"Manrope",sans-serif;
-      font-size:20px;
-      letter-spacing:-.03em;
-    }
-    .process p{color:#888;line-height:1.7;font-size:14px}
-
     /* CTA */
     .cta{
       background:#0b0b0b;
@@ -259,10 +219,6 @@
     }
 
     @media (max-width:900px){
-      .manifesto{grid-template-columns:1fr}
-      .process-grid{grid-template-columns:1fr}
-      .process{border-right:0;border-bottom:1px solid #222}
-      .process:last-child{border-bottom:0}
       .cta-inner{align-items:flex-start;flex-direction:column}
     }
 
@@ -270,7 +226,6 @@
       .site-nav{width:calc(100% - 18px);top:9px}
       .hero-about{padding:130px 0 40px;min-height:auto}
       .section{padding:72px 0}
-      .process{padding:28px 20px}
     }
   </style>
 </head>
@@ -288,11 +243,12 @@
         </div>
       </a>
 
-      <!-- Matching exact navigation items from index -->
+      <!-- Navigation links without non-existent pages -->
       <nav class="hidden md:flex items-center gap-7 lg:gap-9 text-[12px] font-semibold">
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link active" href="about.html">About</a>
+        <a class="nav-link" href="about.html">About</a>
         <a class="nav-link" href="programs.html">Programs</a>
+        <a class="nav-link active" href="events.html">Events</a>
         <a class="nav-link" href="membership.html">Membership</a>
         <a class="nav-link" href="contact.html">Contact</a>
       </nav>
@@ -323,8 +279,9 @@
 
       <nav class="mt-16 grid gap-8">
         <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="index.html">Home</a>
-        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight text-cyan-600" href="about.html">About</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="about.html">About</a>
         <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="programs.html">Programs</a>
+        <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight text-cyan-600" href="events.html">Events</a>
         <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="membership.html">Membership</a>
         <a onclick="toggleMenu(false)" class="display text-4xl font-extrabold tracking-tight" href="contact.html">Contact</a>
       </nav>
@@ -343,195 +300,52 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="max-w-3xl">
-        <div class="eyebrow"><span class="dot"></span> About TSI Uganda</div>
+        <div class="eyebrow"><span class="dot"></span> TSI Gatherings</div>
         <h1 class="display text-white font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight mt-6 leading-[1.02]">
-          Nurturing potential.<br>
-          <span class="text-[#11d8e6]">Building futures.</span>
+          Our Events &<br>
+          <span class="text-[#11d8e6]">Exhibitions.</span>
         </h1>
         <p class="mt-6 text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-          Learn about our foundation, purpose, core principles, and strategic vision to bridge the gap between raw talent and professional success across Uganda.
+          Celebrating talent, culture, and creative empowerment across Uganda through live performances, auditions, and showcase events.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Our Story -->
+  <!-- Upcoming Events -->
   <section class="section">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="manifesto">
-        <div>
-          <div class="kicker">Our Story</div>
-          <h2 class="section-title">
-            Founded on purpose,<br>
-            <span>built for growth.</span>
-          </h2>
-          <p class="manifesto-copy mt-7">
-            Talent Search Initiative (TSI) was founded on <strong>September 3, 2025</strong>, in Kampala, Uganda, with a burning desire to bridge the gap between raw potential and professional success.
-          </p>
-          <p class="manifesto-copy mt-4">
-            We believe that every young person possesses a unique gift that, if properly nurtured, can become a vehicle for both personal success and national development.
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center justify-center p-8 bg-[#f8f8f8] border border-gray-200 rounded-2xl text-center shadow-sm">
-          <img 
-            src="shirt.jpeg" 
-            alt="Talent Search Initiative Official T-Shirt"
-            class="w-56  object-cover shadow-md border-4 border-white"
-          />
-          <p class="mt-4 text-xs font-bold uppercase tracking-widest text-gray-400">
-            Official TSI T-Shirt Showcase
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vision & Mission -->
-  <section class="section bg-[#f6f6f6]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        
-        <!-- Vision -->
-        <div class="bg-white p-8 sm:p-12 border border-gray-200 rounded-sm shadow-sm relative">
-          <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl mb-6">
-            <i class="ri-eye-fill"></i>
-          </div>
-          <div class="kicker">Future outlook</div>
-          <h2 class="display text-3xl font-extrabold mt-2 mb-4">Our Vision</h2>
-          <p class="text-gray-600 text-base leading-relaxed">
-            To build a Uganda where every talent is discovered, nurtured and transformed into a vehicle for personal and national development.
-          </p>
-        </div>
-
-        <!-- Mission -->
-        <div class="bg-white p-8 sm:p-12 border border-gray-200 rounded-sm shadow-sm relative">
-          <div class="w-12 h-12 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-2xl mb-6">
-            <i class="ri-flag-fill"></i>
-          </div>
-          <div class="kicker">Core purpose</div>
-          <h2 class="display text-3xl font-extrabold mt-2 mb-4">Our Mission</h2>
-          <p class="text-gray-600 text-base leading-relaxed">
-            To discover, empower and promote talents across all sectors, fostering creativity, innovation and sustainable livelihoods for young people and community.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Values -->
-  <section class="section section-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-14 items-end mb-14">
-        <div>
-          <div class="kicker">Guiding Pillars</div>
-          <h2 class="section-title text-white">
-            Our Core<br><span class="!text-[#777]">Values.</span>
-          </h2>
-        </div>
-        <p class="text-[#999] max-w-xl text-[15px] leading-8">
-          Principles that define our culture, operations, and commitment to every emerging talent we support.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <article class="border border-[#202020] p-7 hover:border-cyan-400 transition bg-[#0d0d0d]">
-          <i class="ri-shield-line text-3xl text-cyan-400"></i>
-          <h3 class="display text-2xl font-bold mt-8 text-white">Integrity</h3>
-          <p class="text-[#888] text-sm leading-7 mt-3">
-            We uphold the highest standards of honesty and transparency.
-          </p>
-        </article>
-
-        <article class="border border-[#202020] p-7 hover:border-cyan-400 transition bg-[#0d0d0d]">
-          <i class="ri-user-smile-line text-3xl text-cyan-400"></i>
-          <h3 class="display text-2xl font-bold mt-8 text-white">Inclusivity</h3>
-          <p class="text-[#888] text-sm leading-7 mt-3">
-            We welcome talents from all backgrounds, regions, and communities.
-          </p>
-        </article>
-
-        <article class="border border-[#202020] p-7 hover:border-cyan-400 transition bg-[#0d0d0d]">
-          <i class="ri-lightbulb-flash-line text-3xl text-cyan-400"></i>
-          <h3 class="display text-2xl font-bold mt-8 text-white">Creativity</h3>
-          <p class="text-[#888] text-sm leading-7 mt-3">
-            We celebrate original thinking, artistic expression, and innovation.
-          </p>
-        </article>
-
-        <article class="border border-[#202020] p-7 hover:border-cyan-400 transition bg-[#0d0d0d]">
-          <i class="ri-heart-line text-3xl text-cyan-400"></i>
-          <h3 class="display text-2xl font-bold mt-8 text-white">Commitment</h3>
-          <p class="text-[#888] text-sm leading-7 mt-3">
-            We are dedicated to long-term impact and individual youth success.
-          </p>
-        </article>
-
-        <article class="border border-[#202020] p-7 hover:border-cyan-400 transition bg-[#0d0d0d]">
-          <i class="ri-checkbox-circle-line text-3xl text-cyan-400"></i>
-          <h3 class="display text-2xl font-bold mt-8 text-white">Transparency</h3>
-          <p class="text-[#888] text-sm leading-7 mt-3">
-            We operate with complete openness in all our leadership and initiatives.
-          </p>
-        </article>
-
-        <article class="border border-[#202020] p-7 hover:border-cyan-400 transition bg-[#0d0d0d]">
-          <i class="ri-flag-line text-3xl text-cyan-400"></i>
-          <h3 class="display text-2xl font-bold mt-8 text-white">Innovation</h3>
-          <p class="text-[#888] text-sm leading-7 mt-3">
-            We embrace new methods and forward-thinking pathways to solve problems.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Objectives -->
-  <section class="section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div>
-        <div class="kicker">What driving us</div>
+      <div class="mb-12">
+        <div class="kicker">Live & Upcoming</div>
         <h2 class="section-title">
-          Our Strategic<br><span>Objectives.</span>
+          Upcoming<br><span>Events.</span>
         </h2>
       </div>
 
-      <div class="process-grid">
-        <div class="process">
-          <div class="process-number">01 / IDENTIFY</div>
-          <h3>Discover Talent</h3>
-          <p>Identify and nurture talents across music, arts, sports, technology, agriculture, and entrepreneurship.</p>
+      <!-- Dynamic Events Container -->
+      <div id="upcoming-events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="col-span-full text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-gray-200 border-t-[#11d8e6]"></div>
+          <p class="mt-3 text-gray-400 text-sm">Fetching upcoming events...</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="process">
-          <div class="process-number">02 / DEVELOP</div>
-          <h3>Mentorship & Training</h3>
-          <p>Provide comprehensive mentorship, structured skills training, and capacity-building development programs.</p>
-        </div>
+  <!-- Past Highlights -->
+  <section class="section section-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <div class="kicker">Archive</div>
+        <h2 class="section-title text-white">
+          Past<br><span class="!text-[#777]">Highlights.</span>
+        </h2>
+      </div>
 
-        <div class="process">
-          <div class="process-number">03 / SHOWCASE</div>
-          <h3>Expos & Competitions</h3>
-          <p>Organize talent shows, competitions, exhibitions, and platforms for public recognition.</p>
-        </div>
-
-        <div class="process">
-          <div class="process-number">04 / PARTNER</div>
-          <h3>Collaboration</h3>
-          <p>Collaborate with government agencies, private sector leaders, and civil society organizations.</p>
-        </div>
-
-        <div class="process">
-          <div class="process-number">05 / SUSTAIN</div>
-          <h3>Commercialization</h3>
-          <p>Support talent commercialization, business incubation, and self-employment pathways.</p>
-        </div>
-
-        <div class="process">
-          <div class="process-number">06 / ADVOCATE</div>
-          <h3>Policy Support</h3>
-          <p>Advocate for policies supporting sustainable youth talent development and creative sector funding.</p>
+      <!-- Dynamic Highlights Container -->
+      <div id="highlights-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="col-span-full text-center py-12 text-gray-500 text-sm">
+          Loading gallery...
         </div>
       </div>
     </div>
@@ -596,6 +410,7 @@
             <div class="mt-4 grid gap-3 text-gray-500">
               <a href="about.html" class="hover:text-cyan-600 transition">About Us</a>
               <a href="programs.html" class="hover:text-cyan-600 transition">Programs</a>
+              <a href="events.html" class="hover:text-cyan-600 transition">Events</a>
               <a href="membership.html" class="hover:text-cyan-600 transition">Membership</a>
               <a href="contact.html" class="hover:text-cyan-600 transition">Contact Us</a>
             </div>
@@ -614,7 +429,7 @@
 
       <div class="mt-10 pt-7 border-t thin-line flex flex-col sm:flex-row gap-3 justify-between text-xs text-gray-400">
         <div>© 2026 Talent Search Initiative. All rights reserved.</div>
-        <a href="" class="hover:text-cyan-600 transition">Developed and Maintained by Amanda Technologies Uganda</a>
+        <a href="#" class="hover:text-cyan-600 transition">Developed and Maintained by Amanda Technologies Uganda</a>
       </div>
     </div>
   </footer>
@@ -625,6 +440,101 @@
       menu.classList.toggle('translate-x-full', !open);
       document.body.classList.toggle('overflow-hidden', open);
     }
+
+    async function loadEvents() {
+      const upcomingContainer = document.getElementById('upcoming-events-container');
+      if (!upcomingContainer) return;
+      
+      try {
+        const response = await fetch('https://tsi.inovi.store/api/index.php/events');
+        const result = await response.json();
+        
+        if (result.success && result.data && result.data.length > 0) {
+          upcomingContainer.innerHTML = result.data.map(event => {
+            const eventDate = new Date(event.event_date);
+            const formattedDate = eventDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            return `
+              <div class="border border-gray-200 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+                <img class="w-full aspect-video object-cover bg-gray-100" src="https://tsi.inovi.store/${event.image_url}" alt="${event.title}" onerror="this.src='logo.png'">
+                <div class="p-6 flex flex-col flex-grow">
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-600 mb-2">Upcoming Event</span>
+                  <h3 class="display font-bold text-xl text-black mb-3">${event.title}</h3>
+                  <p class="text-gray-500 text-sm mb-6 leading-relaxed line-clamp-3">${event.description || ''}</p>
+                  <div class="mt-auto pt-4 border-t border-gray-100 space-y-2 text-xs text-gray-600">
+                    <div class="flex items-center gap-2">
+                      <i class="ri-calendar-line text-cyan-600 text-base"></i> 
+                      <span>${formattedDate}${event.event_time ? ' at ' + event.event_time : ''}</span>
+                    </div>
+                    ${event.location ? `
+                    <div class="flex items-center gap-2">
+                      <i class="ri-map-pin-line text-cyan-600 text-base"></i> 
+                      <span>${event.location}</span>
+                    </div>` : ''}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join('');
+        } else {
+          upcomingContainer.innerHTML = `
+            <div class="col-span-full text-center py-12 border border-gray-200 rounded-2xl bg-[#f8f8f8]">
+              <i class="ri-calendar-event-line text-4xl text-gray-400"></i>
+              <p class="mt-2 text-gray-600 font-medium text-sm">No upcoming events listed right now.</p>
+              <p class="text-gray-400 text-xs mt-1">Check back soon for new announcements.</p>
+            </div>`;
+        }
+      } catch (error) {
+        console.error('Error loading events:', error);
+        upcomingContainer.innerHTML = `
+          <div class="col-span-full text-center py-12 border border-gray-200 rounded-2xl bg-[#f8f8f8]">
+            <i class="ri-error-warning-line text-4xl text-red-400"></i>
+            <p class="mt-2 text-gray-600 text-sm">Unable to load events at this time.</p>
+          </div>`;
+      }
+    }
+
+    async function loadHighlights() {
+      const highlightsContainer = document.getElementById('highlights-container');
+      if (!highlightsContainer) return;
+      
+      try {
+        const response = await fetch('https://tsi.inovi.store/api/index.php/highlights');
+        const result = await response.json();
+        
+        if (result.success && result.data && result.data.length > 0) {
+          highlightsContainer.innerHTML = result.data.map(highlight => `
+            <div class="relative group overflow-hidden rounded-xl border border-[#202020] bg-[#111] aspect-video">
+              <img class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-80 group-hover:opacity-50" 
+                   src="https://tsi.inovi.store/${highlight.cover_image}" 
+                   alt="${highlight.title}"
+                   onerror="this.src='logo.png'">
+              <div class="absolute inset-0 p-5 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-t from-black via-black/80 to-transparent">
+                <h3 class="display font-bold text-white text-base">${highlight.title}</h3>
+                <p class="text-xs text-gray-300 mt-1 line-clamp-2">${highlight.description || ''}</p>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          highlightsContainer.innerHTML = `
+            <div class="col-span-full text-center py-12 border border-[#202020] rounded-xl text-gray-500 text-sm">
+              No highlights gallery available yet.
+            </div>`;
+        }
+      } catch (error) {
+        console.error('Error loading highlights:', error);
+        highlightsContainer.innerHTML = `
+          <div class="col-span-full text-center py-12 border border-[#202020] rounded-xl text-gray-500 text-sm">
+            Unable to load highlights.
+          </div>`;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadEvents();
+      loadHighlights();
+    });
   </script>
+  <script src="https://tsi.inovi.store/tracker.js" async></script>
 </body>
 </html>
